@@ -57,7 +57,7 @@ public class Paddle {
     }
 
     public void checkCollision(Ball ball) {
-        if (new Rectangle(ball.getX(), ball.getY(), ball.getRadius() , ball.getRadius() ).intersects(new Rectangle(x, y, width, height))) {
+        if (new Rectangle(ball.getX() - ball.getRadius(), ball.getY() - ball.getRadius(), ball.getRadius()*2 , ball.getRadius()*2 ).intersects(new Rectangle(x, y, width, height))) {
             ball.reverseDirectionY(); // Inverti la direzione verticale della pallina
         }
     }
