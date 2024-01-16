@@ -2,12 +2,9 @@ import javax.swing.JFrame;
 import java.awt.EventQueue;
 
 public class Main {
-
     public static void main(String[] args) {
         // Ensure that all UI updates are done on the Event Dispatch Thread
-        EventQueue.invokeLater(() -> {
-            createAndShowGUI();
-        });
+        EventQueue.invokeLater(Main::createAndShowGUI);
     }
 
     private static void createAndShowGUI() {
@@ -23,7 +20,7 @@ public class Main {
         frame.pack();
 
         // Optionally, you can set the frame size manually
-        // frame.setSize(800, 600);
+        frame.setSize(800, 600);
 
         // Center the frame on the screen
         frame.setLocationRelativeTo(null);
