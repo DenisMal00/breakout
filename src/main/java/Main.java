@@ -22,6 +22,7 @@ public class Main {
         // Optionally, you can set the frame size manually
         frame.setSize(800, 600);
 
+        //frame.setResizable(false); // This line makes the frame non-resizable
         // Center the frame on the screen
         frame.setLocationRelativeTo(null);
 
