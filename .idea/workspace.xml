@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;interfaccia grafica&quot;">
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paddle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705393335710</updated>
-      <workItem from="1705393338909" duration="13755000" />
+      <workItem from="1705393338909" duration="23261000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -112,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705416957438</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;">
+      <created>1705417707463</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705417707463</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +146,7 @@
     <MESSAGE value="git push" />
     <MESSAGE value="git commit -m &quot;Creation of the principal Jpanel&quot;" />
     <MESSAGE value="git commit -m &quot;interfaccia grafica&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;interfaccia grafica&quot;" />
+    <MESSAGE value="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;" />
   </component>
 </project>

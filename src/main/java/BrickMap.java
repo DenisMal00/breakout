@@ -37,16 +37,7 @@ public class BrickMap {
         }
     }
 
-    public void checkCollision(Ball ball) {
-        // Collisione con i mattoncini
-        for (Brick brick : bricks) {
-            if (brick.isVisible() && new Rectangle(ball.getX() - ball.getRadius(), ball.getY() - ball.getRadius(), ball.getRadius()*2, ball.getRadius()*2).intersects(new Rectangle(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight()))) {
-                ball.reverseDirectionY();
-                brick.setVisible(false);
-                // Rendi il mattone invisibile
-                 // Cambia la direzione verticale della pallina
-                // Aggiorna il punteggio o altre logiche di gioco
-            }
-        }
+    public ArrayList<Brick> getBricks() {
+            return bricks;
     }
 }
