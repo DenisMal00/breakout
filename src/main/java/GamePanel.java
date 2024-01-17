@@ -11,7 +11,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private Paddle paddle;
     private Ball ball;
     private BrickMap bricks;
-    private int lifes=0;
+    private int lifes=3;
 
     public GamePanel() {
         initGamePanel();
@@ -54,17 +54,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         ball.draw(g2d);
         bricks.draw(g2d);
 
-        Toolkit.getDefaultToolkit().sync(); // Uncomment if experiencing display issues
+        drawLives(g2d);
+
+        //Toolkit.getDefaultToolkit().sync(); // Uncomment if experiencing display issues
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // Game loop logic
         if(ball.move(getWidth(),getHeight())){
-            lifes++;
+            lifes--;
             System.out.println(lifes);
-            if(lifes==3){
-                lifes=0;
+            if(lifes==0){
+                lifes=3;
                 bricks=new BrickMap(3,7);
                 createBricks();
             }
@@ -96,6 +98,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
         //prova
     }
+    private void drawLives(Graphics2D g2d) {
+        g2d.setColor(Color.BLACK); // Imposta il colore del testo
+        g2d.setFont(new Font("Arial", Font.BOLD, 14)); // Imposta il font
 
+        String lifeString = "Vite: " + lifes;
+        int x = 10; // Margine dal bordo sinistro
+        int y = getHeight() - 10; // Margine dal bordo inferiore
+
+        g2d.drawString(lifeString, x, y);
+    }
 }
 

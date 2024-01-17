@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;movimento della palla più naturale&quot;">
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;reset dopo aver perso 3 vite&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705393335710</updated>
-      <workItem from="1705393338909" duration="23561000" />
+      <workItem from="1705393338909" duration="24065000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -125,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705487803744</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="git commit -m &quot;reset dopo aver perso 3 vite&quot;">
+      <created>1705488249198</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705488249198</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +157,7 @@
     <MESSAGE value="git commit -m &quot;interfaccia grafica&quot;" />
     <MESSAGE value="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;" />
     <MESSAGE value="git commit -m &quot;movimento della palla più naturale&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;movimento della palla più naturale&quot;" />
+    <MESSAGE value="git commit -m &quot;reset dopo aver perso 3 vite&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;reset dopo aver perso 3 vite&quot;" />
   </component>
 </project>
