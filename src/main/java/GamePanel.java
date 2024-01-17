@@ -38,7 +38,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         // Set up a timer to call actionPerformed regularly
         timer = new Timer(DELAY, this);
         timer.start();
-        repaint();
     }
     private void createBricks() {
         bricks.createBricks(getWidth(), getHeight());
@@ -66,8 +65,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             System.out.println(lifes);
             if(lifes==3){
                 lifes=0;
-                resetGamePanel();
-                return;
+                bricks=new BrickMap(3,7);
+                createBricks();
             }
             paddle.setPosition(getWidth(), getHeight());
             ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
@@ -98,13 +97,5 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         //prova
     }
 
-    public void resetGamePanel() {
-        // Resetta tutti i componenti del gioco
-        bricks = new BrickMap(3, 7); // Example: 3 rows, 7 columns of bricks
-        ball=new Ball();
-        paddle= new Paddle();
-        repaint(); // Ridisegna il pannello
-    }
-    // Additional methods as needed...
 }
 
