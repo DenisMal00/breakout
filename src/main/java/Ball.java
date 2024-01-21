@@ -67,10 +67,10 @@ public class Ball {
         return radius;
     }
 
-    private void reverseDirectionX(){
+    public void reverseDirectionX(){
         dx = -dx;
     }
-    private void reverseDirectionY(){
+    public void reverseDirectionY(){
         dy = -dy;
     }
 
@@ -83,6 +83,18 @@ public class Ball {
 
     public void reverseBrickCollision() {
         reverseDirectionY();
+    }
+
+    public float getDy() {
+        return dy;
+    }
+
+    public void setX(float x) {
+        this.x=x;
+    }
+
+    public void setY(float y) {
+        this.y=y;
     }
     // Aggiungi qui altri metodi, come per il movimento della pallina
 }

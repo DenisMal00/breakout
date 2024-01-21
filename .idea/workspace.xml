@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;reset dopo aver perso 3 vite&quot;">
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;aggiunta vite&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paddle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +52,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -82,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705393335710</updated>
-      <workItem from="1705393338909" duration="24065000" />
+      <workItem from="1705393338909" duration="49059000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -133,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705488249198</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="git commit -m &quot;aggiunta vite&quot;">
+      <created>1705488573593</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705488573593</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +170,7 @@
     <MESSAGE value="git commit -m &quot;sistemazione collisioni pallina con brick e paddle&quot;" />
     <MESSAGE value="git commit -m &quot;movimento della palla più naturale&quot;" />
     <MESSAGE value="git commit -m &quot;reset dopo aver perso 3 vite&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;reset dopo aver perso 3 vite&quot;" />
+    <MESSAGE value="git commit -m &quot;aggiunta vite&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;aggiunta vite&quot;" />
   </component>
 </project>

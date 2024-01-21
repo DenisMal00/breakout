@@ -3,13 +3,11 @@ import java.util.ArrayList;
 
 public class BrickMap {
     private ArrayList<Brick> bricks;
-    private int rows;
-    private int cols;
+    private int rows=3;
+    private int cols=7;
     private int brickHeight = 30; // Altezza fissa, ad esempio
 
-    public BrickMap(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
+    public BrickMap() {
         bricks = new ArrayList<>();
     }
 
@@ -39,5 +37,14 @@ public class BrickMap {
 
     public ArrayList<Brick> getBricks() {
             return bricks;
+    }
+
+    public boolean areAllBricksGone() {
+        for(Brick brick : bricks) {
+            if(brick.isVisible()) {
+                return false; // Almeno un mattone è ancora visibile
+            }
+        }
+        return true; // Tutti i mattoncini sono distrutti
     }
 }

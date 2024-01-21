@@ -7,8 +7,8 @@ import java.awt.Color;
 
 public class Paddle {
     private int x, y;
-    private int width = 120;
-    private int height = 20;
+    private int width = 130;
+    private int height = 10;
     private int marginFromBottom = 40;
     private int speed = 40; // Regola questa per cambiare la velocità del paddle
 
