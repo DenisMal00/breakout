@@ -10,21 +10,19 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private Paddle paddle;
     private Ball ball;
     private BrickMap bricks;
-    private int lives =3;
+    private int lives;
     private Runnable onGameOver;
     private Runnable onVictory;
-    private boolean gameWonDisplayed = false;
 
-
-
-    public GamePanel() {
-        initGamePanel();
+    public GamePanel(int width, int height) {
+        initGamePanel(width,height);
     }
 
-    private void initGamePanel() {
+    private void initGamePanel(int width, int height) {
         bricks = new BrickMap(); // Example: 3 rows, 7 columns of bricks
         ball=new Ball();
         paddle= new Paddle();
+        lives=3;
         addKeyListener(this);
         setFocusable(true);
         requestFocusInWindow(); // Chiedi esplicitamente il focus qui
@@ -33,8 +31,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             @Override
             public void componentResized(ComponentEvent e) {
                 // Imposta la posizione del paddle ogni volta che il pannello cambia dimensione
-                paddle.setPosition(getWidth(), getHeight());
-                bricks.createBricks(getWidth(), getHeight());
+                paddle.setPosition(width, height);
+                bricks.createBricks(width, height);
                 ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
             }
         });
@@ -65,25 +63,25 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Game loop logic
-        if(ball.move(getWidth(),getHeight())){
-            lives--;
-            if(lives ==0){
-                lives =3;
-                if (onGameOver != null) {
-                    onGameOver.run(); // Notifica il listener che il gioco è finito
+        ball.move();
+        if(Collision.checkWallCollision(ball,getWidth(),getHeight())){
+                lives--;
+                if(lives ==0){
+                    if (onGameOver != null) {
+                        onGameOver.run(); // Notifica il listener che il gioco è finito
+                        timer.stop();
+                    }
                 }
-            }
-            paddle.setPosition(getWidth(), getHeight());
-            ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
+                paddle.setPosition(getWidth(), getHeight());
+                ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
         }
         Collision.checkCollisionWithPaddle(ball, paddle);
         Collision.checkCollisionWithBricks(ball, bricks);
 
-        if(!gameWonDisplayed && bricks.areAllBricksGone()){
+        if(bricks.areAllBricksGone()){
             if (onVictory != null) {
                 onVictory.run(); // Notifica il listener che il giocatore ha vinto
-                gameWonDisplayed = true; // Imposta che la schermata è stata mostrata
+                timer.stop();
             }
         }
         repaint(); // Redraw the panel

@@ -3,9 +3,9 @@ import java.awt.*;
 public class Ball {
     private float x, y;
     private final int radius = 10; // Scegli un raggio appropriato per la pallina
-    private float dx = 0.4f ; // Velocità orizzontale
+    private float dx = 0.2f ; // Velocità orizzontale
     private float dy = -0.4f; // Velocità verticale (negativa per muoversi verso l'alto)
-    private static final float MAX_X_SPEED_CHANGE = 0.1f; // Adjust this based on your game's requirements
+    private static final float MAX_X_SPEED_CHANGE = 0.2f; // Adjust this based on your game's requirements
 
 
 
@@ -39,20 +39,9 @@ public class Ball {
         g.drawOval(drawX, drawY, diameter, diameter);
     }
 
-    public boolean move(int panelWidth, int panelHeight) {
+    public void move() {
         x += dx;
         y += dy;
-        // Gestisci le collisioni con le pareti
-        if (x < 0 || x > panelWidth - radius * 2) {
-            reverseDirectionX(); // Inverti la direzione orizzontale
-        }
-        if (y < 0) {
-            reverseDirectionY(); // Inverti la direzione verticale
-        }
-        else if(y > panelHeight){
-            return true;
-        }
-        return false;
     }
 
     public float getX() {
@@ -89,12 +78,5 @@ public class Ball {
         return dy;
     }
 
-    public void setX(float x) {
-        this.x=x;
-    }
-
-    public void setY(float y) {
-        this.y=y;
-    }
     // Aggiungi qui altri metodi, come per il movimento della pallina
 }

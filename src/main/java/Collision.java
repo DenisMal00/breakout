@@ -57,4 +57,20 @@ public class Collision {
         }
     }
 
+    public static boolean checkWallCollision(Ball ball, int panelWidth, int panelHeight) {
+        float x = ball.getX();
+        float y = ball.getY();
+        float radius = ball.getRadius();
+
+        if (x < 0 || x > panelWidth - radius * 2) {
+            ball.reverseDirectionX(); // Inverti la direzione orizzontale
+        }
+        if (y < 0) {
+            ball.reverseDirectionY(); // Inverti la direzione verticale
+        } else if (y > panelHeight) {
+            return true; // La pallina è uscita dal pannello
+        }
+        return false; // La pallina è ancora all'interno del pannello
+    }
+
 }
