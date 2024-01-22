@@ -3,9 +3,9 @@ import java.awt.*;
 public class Ball {
     private float x, y;
     private final int radius = 10; // Scegli un raggio appropriato per la pallina
-    private float dx = 0.2f ; // Velocità orizzontale
-    private float dy = -0.4f; // Velocità verticale (negativa per muoversi verso l'alto)
-    private static final float MAX_X_SPEED_CHANGE = 0.2f; // Adjust this based on your game's requirements
+    private float dx = 0.5f ; // Velocità orizzontale
+    private float dy = -0.5f; // Velocità verticale (negativa per muoversi verso l'alto)
+    private static final float MAX_X_SPEED_CHANGE = 0.5f; // Adjust this based on your game's requirements
 
 
 
@@ -76,6 +76,14 @@ public class Ball {
 
     public float getDy() {
         return dy;
+    }
+
+    public void setX(float x) {
+        this.x=x;
+    }
+
+    public void setY(float y) {
+        this.y=y;
     }
 
     // Aggiungi qui altri metodi, come per il movimento della pallina

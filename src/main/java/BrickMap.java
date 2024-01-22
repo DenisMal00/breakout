@@ -29,12 +29,6 @@ public class BrickMap {
         }
     }
 
-    public void draw(Graphics2D g) {
-        for (Brick brick : bricks) {
-            brick.draw(g);
-        }
-    }
-
     public ArrayList<Brick> getBricks() {
             return bricks;
     }

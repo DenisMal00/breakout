@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;aggiunta menu e schermate game over e hai vinto&quot;">
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramento sezione menu di gioco&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Collidable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MenuManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scoreboard.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +32,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -85,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705393335710</updated>
-      <workItem from="1705393338909" duration="57856000" />
+      <workItem from="1705393338909" duration="83206000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -150,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705835297355</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="git commit -m &quot;miglioramento sezione menu di gioco&quot;">
+      <created>1705852835464</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705852835464</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +193,7 @@
     <MESSAGE value="git commit -m &quot;reset dopo aver perso 3 vite&quot;" />
     <MESSAGE value="git commit -m &quot;aggiunta vite&quot;" />
     <MESSAGE value="git commit -m &quot;aggiunta menu e schermate game over e hai vinto&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;aggiunta menu e schermate game over e hai vinto&quot;" />
+    <MESSAGE value="git commit -m &quot;miglioramento sezione menu di gioco&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramento sezione menu di gioco&quot;" />
   </component>
 </project>
