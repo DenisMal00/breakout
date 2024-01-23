@@ -3,7 +3,8 @@ import java.awt.Color;
 import java.awt.Rectangle;
 
 public class Brick implements Collidable{
-    private int x, y,width, height;
+    private final int x, y;
+    private final int width,height;
     private boolean isVisible;
 
     public Brick(int x, int y, int width, int height) {

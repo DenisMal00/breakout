@@ -1,11 +1,10 @@
-import java.awt.*;
 import java.util.ArrayList;
 
 public class BrickMap {
-    private ArrayList<Brick> bricks;
-    private int rows=3;
-    private int cols=7;
-    private int brickHeight = 30; // Altezza fissa, ad esempio
+    private final ArrayList<Brick> bricks;
+    private static final int rows=3;
+    private static final int cols=7;
+    private static final int brickHeight = 30; // Altezza fissa, ad esempio
 
     public BrickMap() {
         bricks = new ArrayList<>();

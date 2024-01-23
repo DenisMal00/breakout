@@ -5,9 +5,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class GamePanel extends JPanel {
-    private GameModel model;
+    private final GameModel model;
 
     public GamePanel(GameModel model) {
         this.model = model;
@@ -17,6 +19,21 @@ public class GamePanel extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 model.processKey(e.getKeyCode());
+            }
+        });
+        /*addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                model.moveBallTo(e.getX(), e.getY());
+                repaint();
+            }
+        });
+        */
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                model.movePaddleTo(e.getX());
+                repaint();
             }
         });
     }

@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramento sezione menu di gioco&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Collidable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MenuManager.java" afterDir="false" />
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;movimento del paddle col mouse&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Brick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scoreboard.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,18 +48,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -94,7 +91,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705393335710</updated>
-      <workItem from="1705393338909" duration="83206000" />
+      <workItem from="1705393338909" duration="83265000" />
+      <workItem from="1705997880988" duration="6443000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -166,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705852835464</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="git commit">
+      <created>1705949701925</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705949701925</updated>
+    </task>
+    <task id="LOCAL-00012" summary="git commit">
+      <created>1705949714958</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1705949714958</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +206,8 @@
     <MESSAGE value="git commit -m &quot;aggiunta vite&quot;" />
     <MESSAGE value="git commit -m &quot;aggiunta menu e schermate game over e hai vinto&quot;" />
     <MESSAGE value="git commit -m &quot;miglioramento sezione menu di gioco&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramento sezione menu di gioco&quot;" />
+    <MESSAGE value="git commit" />
+    <MESSAGE value="git commit -m &quot;movimento del paddle col mouse&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;movimento del paddle col mouse&quot;" />
   </component>
 </project>

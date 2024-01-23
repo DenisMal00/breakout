@@ -4,17 +4,17 @@ import java.awt.event.ActionListener;
 import java.util.function.Consumer;
 
 public class GameController implements ActionListener {
-    private GameModel model;
-    private GamePanel view;
-    private Timer timer;
-    private Consumer<String> onGameEnd; // Callable per gestire la fine del gioco
+    private final GameModel model;
+    private final GamePanel view;
+    private final Timer timer;
+    private final Consumer<String> onGameEnd; // Callable per gestire la fine del gioco
 
     public GameController(GameModel model, GamePanel view, Consumer<String> onGameEnd) {
         this.model = model;
         this.view = view;
         this.onGameEnd = onGameEnd;
 
-        timer = new Timer(1, this);
+        timer = new Timer(5, this);
         timer.start();
     }
 
@@ -36,6 +36,4 @@ public class GameController implements ActionListener {
             onGameEnd.accept("Hai vinto!");
         }
     }
-
-    // Altri metodi per la gestione degli input, ecc.
 }

@@ -1,13 +1,11 @@
 public class Paddle implements Collidable {
     private int x, y;
-    private int width = 130;
-    private int height = 20;
-    private int marginFromBottom = 40;
-    private int speed = 40; // Regola questa per cambiare la velocità del paddle
+    private static final int width = 130;
+    private static final int height = 20;
+    private static final int marginFromBottom = 40;
+    private static final int speed = 40; // Regola questa per cambiare la velocità del paddle
 
-    public Paddle(){
-
-    }
+    public Paddle(){}
     public void setPosition(int panelWidth, int panelHeight) {
         // Initialize the paddle at the bottom center of the panel
         x = panelWidth / 2 - width / 2; // Center the paddle horizontally
@@ -44,5 +42,7 @@ public class Paddle implements Collidable {
     public int getHeight() {
         return height;
     }
+
+    public void setX(int x) {this.x=x;}
     // Additional methods for movement, collision, etc.
 }

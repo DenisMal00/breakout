@@ -2,12 +2,10 @@ import java.awt.*;
 
 public class Ball {
     private float x, y;
-    private final int radius = 10; // Scegli un raggio appropriato per la pallina
-    private float dx = 0.5f ; // Velocità orizzontale
-    private float dy = -0.5f; // Velocità verticale (negativa per muoversi verso l'alto)
-    private static final float MAX_X_SPEED_CHANGE = 0.5f; // Adjust this based on your game's requirements
-
-
+    private static final int radius = 10; // Scegli un raggio appropriato per la pallina
+    private static float dx = 0.2f ; // Velocità orizzontale
+    private static float dy = -0.2f; // Velocità verticale (negativa per muoversi verso l'alto)
+    private static final float MAX_X_SPEED_CHANGE = 0.2f; // Adjust this based on your game's requirements
 
     // Costruttore
     public Ball() {
@@ -70,10 +68,6 @@ public class Ball {
         dx=(Math.min(Math.max(dx, -MAX_X_SPEED_CHANGE), MAX_X_SPEED_CHANGE));
     }
 
-    public void reverseBrickCollision() {
-        reverseDirectionY();
-    }
-
     public float getDy() {
         return dy;
     }
@@ -85,6 +79,4 @@ public class Ball {
     public void setY(float y) {
         this.y=y;
     }
-
-    // Aggiungi qui altri metodi, come per il movimento della pallina
 }

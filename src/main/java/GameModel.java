@@ -5,13 +5,21 @@ public class GameModel {
     private Ball ball;
     private BrickMap bricks;
     private int lives;
-    private final int initialLives = 3;
-    private int panelWidth;
-    private int panelHeight;
+    private static final int initialLives = 3;
+    private final int panelWidth;
+    private final int panelHeight;
+    private static final int MAX_PADDLE_SPEED = 8;// massima velocità del paddle per aggiornamento
+    private static final long MOUSE_INACTIVITY_THRESHOLD = 300; // tempo in millisecondi
+    private long lastMouseActivityTime;
+    private boolean isMouseControlActive;
+
+
 
     public GameModel(int panelWidth, int panelHeight) {
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
+        this.lastMouseActivityTime=0;
+        this.isMouseControlActive = false;
         initializeGame();
     }
 
@@ -29,7 +37,9 @@ public class GameModel {
         // Aggiorna lo stato del gioco
         ball.move();
         checkCollisions();
-        // Altre logiche di aggiornamento
+        if (System.currentTimeMillis() - lastMouseActivityTime > MOUSE_INACTIVITY_THRESHOLD) {
+            isMouseControlActive = false;
+        }
     }
 
     private void checkCollisions() {
@@ -40,7 +50,6 @@ public class GameModel {
                 resetGameObjects();
             }
         }
-
         Collision.checkCollisionWithPaddle(ball, paddle);
         Collision.checkCollisionWithBricks(ball, bricks);
     }
@@ -52,6 +61,9 @@ public class GameModel {
     }
 
     public void processKey(int keyCode) {
+        if (isMouseControlActive && System.currentTimeMillis() - lastMouseActivityTime < MOUSE_INACTIVITY_THRESHOLD) {
+            return; // Ignora l'input della tastiera se il mouse è attivo
+        }
         if (keyCode == KeyEvent.VK_LEFT) {
             paddle.moveLeft();
         } else if (keyCode == KeyEvent.VK_RIGHT) {
@@ -59,31 +71,44 @@ public class GameModel {
         }
     }
 
-    // Metodi getter, isGameOver, isVictory, ecc...
+    public void moveBallTo(int x, int y) {
+        Ball ball = getBall();
+        ball.setX(x);
+        ball.setY(y);
+    }
+
+    public void movePaddleTo(int mouseX) {
+        Paddle paddle = getPaddle();
+        int targetX = mouseX - paddle.getWidth() / 2;
+        // Limita la velocità di movimento del paddle
+        int deltaX = targetX - paddle.getX();
+        if (deltaX > MAX_PADDLE_SPEED) {
+            deltaX = MAX_PADDLE_SPEED;
+        } else if (deltaX < -MAX_PADDLE_SPEED) {
+            deltaX = -MAX_PADDLE_SPEED;
+        }
+        // Aggiorna la posizione del paddle assicurandoti che rimanga all'interno dei confini
+        int newX = Math.max(0, Math.min(paddle.getX() + deltaX, panelWidth - paddle.getWidth()));
+        paddle.setX(newX);
+        isMouseControlActive = true;
+        lastMouseActivityTime = System.currentTimeMillis();
+    }
     public boolean isGameOver() {
         return lives <= 0;
     }
-
     public boolean isVictory() {
         return bricks.areAllBricksGone();
     }
-
-    // Getter e setter
     public Paddle getPaddle() {
         return paddle;
     }
-
     public Ball getBall() {
         return ball;
     }
-
     public BrickMap getBricks() {
         return bricks;
     }
-
     public int getLives() {
         return lives;
     }
-
-    // Altri metodi necessari...
 }

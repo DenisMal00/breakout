@@ -20,7 +20,6 @@ public class Collision {
         Brick collidedBrick = null;
         double largestOverlap = 0;
         Rectangle largestOverlapRect = new Rectangle();
-
         for (Brick brick : bricks.getBricks()) {
             if (brick.isVisible()) {
                 Rectangle overlap = getCollisionArea(ball, brick);
@@ -33,7 +32,6 @@ public class Collision {
                 }
             }
         }
-
         if (collidedBrick != null) {
             // Determina la direzione della collisione
             if (largestOverlapRect.getWidth() > largestOverlapRect.getHeight()) {
@@ -52,7 +50,6 @@ public class Collision {
         float x = ball.getX();
         float y = ball.getY();
         float radius = ball.getRadius();
-
         if (x < radius || x > panelWidth - radius) {
             ball.reverseDirectionX(); // Inverti la direzione orizzontale
         }
