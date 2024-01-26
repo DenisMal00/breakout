@@ -16,7 +16,7 @@ public class Collision {
             // Nessuna azione è intrapresa se la pallina colpisce i lati o la parte inferiore del paddle
         }
     }
-    public static void checkCollisionWithBricks(Ball ball, BrickMap bricks) {
+    public static void checkCollisionWithBricks(Ball ball, BrickMap bricks,GameModel gameModel) {
         Brick collidedBrick = null;
         double largestOverlap = 0;
         Rectangle largestOverlapRect = new Rectangle();
@@ -32,6 +32,10 @@ public class Collision {
                 }
             }
         }
+        changeBallDirection(ball, gameModel, collidedBrick, largestOverlapRect);
+    }
+
+    private static void changeBallDirection(Ball ball, GameModel gameModel, Brick collidedBrick, Rectangle largestOverlapRect) {
         if (collidedBrick != null) {
             // Determina la direzione della collisione
             if (largestOverlapRect.getWidth() > largestOverlapRect.getHeight()) {
@@ -41,11 +45,17 @@ public class Collision {
                 // Collisione sui lati verticali del mattone
                 ball.reverseDirectionX();
             }
-
             // Rendi invisibile il mattone e gestisci la collisione
-            collidedBrick.setVisible(false);
+            if (collidedBrick.isDestructable()) {
+                if (Math.random() < 0.33) { // circa 33% di probabilità
+                    PowerUp.Type type = PowerUp.getRandomPowerUpType();
+                    gameModel.addPowerUp(new PowerUp(type, collidedBrick.getX(), collidedBrick.getY()));
+                }
+                collidedBrick.setVisible(false);
+            }
         }
     }
+
     public static boolean checkWallCollision(Ball ball, int panelWidth, int panelHeight) {
         float x = ball.getX();
         float y = ball.getY();
@@ -80,5 +90,15 @@ public class Collision {
             return ballRect.intersection(objectRect);
         }
         return new Rectangle(); // Nessuna collisione
+    }
+    public static boolean checkPowerUpCollisionWithPaddle(PowerUp powerUp, Paddle paddle) {
+        // Calcola la bounding box del power-up
+        Rectangle powerUpRect = new Rectangle((int) powerUp.getX(), (int) powerUp.getY(), (int) powerUp.getSize(), (int) powerUp.getSize());
+
+        // Calcola la bounding box del paddle
+        Rectangle paddleRect = new Rectangle(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+
+        // Verifica la collisione
+        return powerUpRect.intersects(paddleRect);
     }
 }

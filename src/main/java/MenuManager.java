@@ -37,8 +37,9 @@ public class MenuManager {
         cp.removeAll();
         cp.setLayout(new BorderLayout());
         gameModel = new GameModel(cp.getWidth(), cp.getHeight());
-        gamePanel = new GamePanel(gameModel);
-        gameController = new GameController(gameModel, gamePanel, this::showEndGameScreen);
+        gameController = new GameController(gameModel, this::showEndGameScreen);
+        gamePanel = new GamePanel(gameController);
+        gameController.setView(gamePanel);
         frame.add(gamePanel);
         frame.revalidate();
         frame.repaint();

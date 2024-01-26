@@ -1,20 +1,17 @@
-import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Rectangle;
-
 public class Brick implements Collidable{
     private final int x, y;
     private final int width,height;
     private boolean isVisible;
+    private final boolean isDestructable;
 
-    public Brick(int x, int y, int width, int height) {
+    public Brick(int x, int y, int width, int height, boolean isDestructable) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.isVisible = true; // Initially, all bricks are visible
+        this.isDestructable=isDestructable;
     }
-
 
     // Setter for isVisible - call this when the brick is hit by the ball
     public void setVisible(boolean isVisible) {
@@ -42,5 +39,8 @@ public class Brick implements Collidable{
         return isVisible;
     }
 
+    public boolean isDestructable() {
+        return isDestructable;
+    }
     // Add additional methods as needed, e.g., for collision detection
 }

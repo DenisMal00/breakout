@@ -10,7 +10,7 @@ public class BrickMap {
         bricks = new ArrayList<>();
     }
 
-    public void createBricks(int panelWidth, int panelHeight) {
+    public void createBricks(int panelWidth) {
         bricks.clear();
         int brickWidth = panelWidth / cols;
 
@@ -23,7 +23,7 @@ public class BrickMap {
                 if (col == cols - 1) {
                     adjustedBrickWidth = panelWidth - x;
                 }
-                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight));
+                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true));
             }
         }
     }

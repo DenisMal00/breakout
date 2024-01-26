@@ -1,5 +1,3 @@
-import java.awt.*;
-
 public class Ball {
     private float x, y;
     private static final int radius = 10; // Scegli un raggio appropriato per la pallina
@@ -20,22 +18,6 @@ public class Ball {
     }
 
     // Metodo per disegnare la pallina
-    public void draw(Graphics2D g) {
-        /*g.setColor(Color.RED); // Scegli un colore per la pallina
-        g.fillOval((int) (x - radius), (int) (y - radius), radius * 2, radius * 2);
-        // Disegna il bordo
-        g.setColor(Color.BLACK); // Colore del bordo
-        g.drawOval((int) (x - radius), (int) (y - radius), radius * 2, radius * 2);*/
-        int drawX = Math.round(x - radius);
-        int drawY = Math.round(y - radius);
-        int diameter = radius * 2;
-
-        g.setColor(Color.RED);
-        g.fillOval(drawX, drawY, diameter, diameter);
-
-        g.setColor(Color.BLACK);
-        g.drawOval(drawX, drawY, diameter, diameter);
-    }
 
     public void move() {
         x += dx;
@@ -70,13 +52,5 @@ public class Ball {
 
     public float getDy() {
         return dy;
-    }
-
-    public void setX(float x) {
-        this.x=x;
-    }
-
-    public void setY(float y) {
-        this.y=y;
     }
 }

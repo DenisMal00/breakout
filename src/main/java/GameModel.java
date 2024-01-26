@@ -1,4 +1,6 @@
-import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class GameModel {
     private Paddle paddle;
@@ -8,18 +10,11 @@ public class GameModel {
     private static final int initialLives = 3;
     private final int panelWidth;
     private final int panelHeight;
-    private static final int MAX_PADDLE_SPEED = 8;// massima velocità del paddle per aggiornamento
-    private static final long MOUSE_INACTIVITY_THRESHOLD = 300; // tempo in millisecondi
-    private long lastMouseActivityTime;
-    private boolean isMouseControlActive;
-
-
+    private List<PowerUp> powerUpsOnScreen = new ArrayList<>();
 
     public GameModel(int panelWidth, int panelHeight) {
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
-        this.lastMouseActivityTime=0;
-        this.isMouseControlActive = false;
         initializeGame();
     }
 
@@ -28,20 +23,54 @@ public class GameModel {
         paddle = new Paddle();
         ball = new Ball();
         bricks = new BrickMap();
-        bricks.createBricks(panelWidth,panelHeight);
+        bricks.createBricks(panelWidth);
         lives = initialLives;
+        PowerUp testPowerUp = new PowerUp(PowerUp.Type.DOUBLE_BALL, 100, 100); // Example position
+        powerUpsOnScreen.add(testPowerUp);
         resetGameObjects();
+    }
+
+    private void resetGameObjects() {
+        // Reimposta paddle e ball
+        paddle.setPosition(panelWidth, panelHeight);
+        ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
     }
 
     public void update() {
         // Aggiorna lo stato del gioco
+        updatePowerUps();
+        checkPowerUpCollisions();
+        for (PowerUp powerUp : powerUpsOnScreen) {
+            powerUp.moveDown();
+        }
         ball.move();
         checkCollisions();
-        if (System.currentTimeMillis() - lastMouseActivityTime > MOUSE_INACTIVITY_THRESHOLD) {
-            isMouseControlActive = false;
+
+    }
+    public void checkPowerUpCollisions() {
+        for (Iterator<PowerUp> iterator = powerUpsOnScreen.iterator(); iterator.hasNext();) {
+            PowerUp powerUp = iterator.next();
+            if (Collision.checkPowerUpCollisionWithPaddle(powerUp, paddle)) {
+                activatePowerUp(powerUp); // Attiva il power-up
+                iterator.remove(); // Rimuovi il power-up dopo l'attivazione
+            }
         }
     }
 
+    private void activatePowerUp(PowerUp powerUp) {
+        // Qui attivi l'effetto del power-up
+        // Implementa la logica specifica per il tipo di power-up
+    }
+    public void updatePowerUps() {
+        for (Iterator<PowerUp> iterator = powerUpsOnScreen.iterator(); iterator.hasNext();) {
+            PowerUp powerUp = iterator.next();
+            powerUp.moveDown();
+
+            if (powerUp.getY() > panelHeight) {
+                iterator.remove(); // Rimuove il power-up se è fuori dallo schermo
+            }
+        }
+    }
     private void checkCollisions() {
         // Gestisci le collisioni qui
         if (Collision.checkWallCollision(ball, panelWidth, panelHeight)) {
@@ -51,47 +80,23 @@ public class GameModel {
             }
         }
         Collision.checkCollisionWithPaddle(ball, paddle);
-        Collision.checkCollisionWithBricks(ball, bricks);
+        Collision.checkCollisionWithBricks(ball, bricks,this);
     }
-
-    private void resetGameObjects() {
-        // Reimposta paddle e ball
-        paddle.setPosition(panelWidth, panelHeight);
-        ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
-    }
-
-    public void processKey(int keyCode) {
-        if (isMouseControlActive && System.currentTimeMillis() - lastMouseActivityTime < MOUSE_INACTIVITY_THRESHOLD) {
-            return; // Ignora l'input della tastiera se il mouse è attivo
-        }
-        if (keyCode == KeyEvent.VK_LEFT) {
-            paddle.moveLeft();
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            paddle.moveRight(panelWidth);
-        }
-    }
-
-    public void moveBallTo(int x, int y) {
-        Ball ball = getBall();
-        ball.setX(x);
-        ball.setY(y);
-    }
-
-    public void movePaddleTo(int mouseX) {
-        Paddle paddle = getPaddle();
-        int targetX = mouseX - paddle.getWidth() / 2;
-        // Limita la velocità di movimento del paddle
-        int deltaX = targetX - paddle.getX();
-        if (deltaX > MAX_PADDLE_SPEED) {
-            deltaX = MAX_PADDLE_SPEED;
-        } else if (deltaX < -MAX_PADDLE_SPEED) {
-            deltaX = -MAX_PADDLE_SPEED;
-        }
-        // Aggiorna la posizione del paddle assicurandoti che rimanga all'interno dei confini
-        int newX = Math.max(0, Math.min(paddle.getX() + deltaX, panelWidth - paddle.getWidth()));
+    public void setPaddlePosition(int newX) {
         paddle.setX(newX);
-        isMouseControlActive = true;
-        lastMouseActivityTime = System.currentTimeMillis();
+    }
+    public void movePaddleLeft() {
+        paddle.moveLeft();
+    }
+    public void movePaddleRight() {
+        paddle.moveRight(panelWidth);
+    }
+
+    public void addPowerUp(PowerUp powerUp) {
+        powerUpsOnScreen.add(powerUp);
+    }
+    public List<PowerUp> getPowerUpsOnScreen() {
+        return powerUpsOnScreen;
     }
     public boolean isGameOver() {
         return lives <= 0;
@@ -111,4 +116,6 @@ public class GameModel {
     public int getLives() {
         return lives;
     }
+
+
 }
