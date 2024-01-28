@@ -31,14 +31,13 @@ public class GameController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Controlla le condizioni di vittoria o sconfitta
+        checkGameStatus();
         if (System.currentTimeMillis() - lastMouseActivityTime > MOUSE_INACTIVITY_THRESHOLD) {
             isMouseControlActive = false;
         }
         model.update(); // Aggiorna il modello di gioco
         view.repaint(); // Ridisegna il pannello di gioco
-
-        // Controlla le condizioni di vittoria o sconfitta
-        checkGameStatus();
     }
 
     public void processKey(int keyCode) {

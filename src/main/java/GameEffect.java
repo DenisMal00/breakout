@@ -1,11 +1,61 @@
-public class PowerUp {
+import java.awt.*;
+
+public abstract class GameEffect {
+    protected float x, y;
+    protected int duration; // Durata in termini di tick di aggiornamento
+    protected static final float DOWNWARD_SPEED = 0.5f; // Velocità di movimento verso il basso comune
+    protected boolean isCollected=false;
+    private final static float size=20;
+
+
+    public GameEffect(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void moveDown() {
+        y += DOWNWARD_SPEED;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public boolean isCollected() {
+        return isCollected;
+    }
+    public void setCollected(boolean isCollected) {
+        this.isCollected = isCollected;
+    }
+    // Metodi astratti per attivare e disattivare il power-up
+    public abstract void activate(GameModel model);
+    public abstract void deactivate(GameModel model);
+    public abstract void render(Graphics2D g2d);
+
+    public float getSize() {
+        return size;
+    }
+}
+
+/*public class PowerUp {
     public enum Type { DOUBLE_BALL, REVERSE_CONTROLS }
     private final Type type;
     private static final float DOWNWARD_SPEED = 0.7f ; // Velocità di movimento verso il basso
     private float x, y; // Posizione del power-up
     private int duration; // Durata in termini di tick di aggiornamento
-
-    private final float size=20;
+    private boolean isCollected=false;
 
 
 
@@ -61,4 +111,11 @@ public class PowerUp {
     public float getSize(){
         return this.size;
     }
+    public boolean isCollected() {
+        return isCollected;
+    }
+    public void setCollected(boolean isCollected) {
+        this.isCollected = isCollected;
+    }
 }
+*/

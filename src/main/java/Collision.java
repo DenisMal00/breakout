@@ -47,9 +47,9 @@ public class Collision {
             }
             // Rendi invisibile il mattone e gestisci la collisione
             if (collidedBrick.isDestructable()) {
-                if (Math.random() < 0.33) { // circa 33% di probabilità
-                    PowerUp.Type type = PowerUp.getRandomPowerUpType();
-                    gameModel.addPowerUp(new PowerUp(type, collidedBrick.getX(), collidedBrick.getY()));
+                GameEffect newEffect = GameEffectFactory.createRandomPowerUp(collidedBrick.getX(), collidedBrick.getY());
+                if (newEffect != null) {
+                    gameModel.addEffect(newEffect);
                 }
                 collidedBrick.setVisible(false);
             }
@@ -91,9 +91,9 @@ public class Collision {
         }
         return new Rectangle(); // Nessuna collisione
     }
-    public static boolean checkPowerUpCollisionWithPaddle(PowerUp powerUp, Paddle paddle) {
+    public static boolean checkPowerUpCollisionWithPaddle(GameEffect effect, Paddle paddle) {
         // Calcola la bounding box del power-up
-        Rectangle powerUpRect = new Rectangle((int) powerUp.getX(), (int) powerUp.getY(), (int) powerUp.getSize(), (int) powerUp.getSize());
+        Rectangle powerUpRect = new Rectangle((int) effect.getX(), (int) effect.getY(), (int) effect.getSize(), (int) effect.getSize());
 
         // Calcola la bounding box del paddle
         Rectangle paddleRect = new Rectangle(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());

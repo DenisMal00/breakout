@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramento del codice&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PowerUp.java" afterDir="false" />
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;introduzione di power up&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameEffectFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameEffect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -112,7 +112,7 @@
       <workItem from="1705997880988" duration="10009000" />
       <workItem from="1706260576988" duration="1061000" />
       <workItem from="1706263805739" duration="97000" />
-      <workItem from="1706263909610" duration="14889000" />
+      <workItem from="1706263909610" duration="30742000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -205,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706016323233</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="git commit -m &quot;introduzione di power up&quot;">
+      <option name="closed" value="true" />
+      <created>1706289011358</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706289011358</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +244,7 @@
     <MESSAGE value="git commit" />
     <MESSAGE value="git commit -m &quot;movimento del paddle col mouse&quot;" />
     <MESSAGE value="git commit -m &quot;miglioramento del codice&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramento del codice&quot;" />
+    <MESSAGE value="git commit -m &quot;introduzione di power up&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;introduzione di power up&quot;" />
   </component>
 </project>

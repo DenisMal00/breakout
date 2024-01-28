@@ -7,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.List;
 
 public class GamePanel extends JPanel {
     private final GameController controller;
@@ -21,14 +22,6 @@ public class GamePanel extends JPanel {
                 controller.processKey(e.getKeyCode());
             }
         });
-        /*addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                model.moveBallTo(e.getX(), e.getY());
-                repaint();
-            }
-        });
-        */
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
@@ -52,13 +45,14 @@ public class GamePanel extends JPanel {
 
     private void drawBall(Graphics2D g2d) {
         // Disegna la pallina
-        Ball ball = controller.getModel().getBall();
-        g2d.setColor(Color.RED);
-        float diameter = ball.getRadius() * 2;
-        g2d.fillOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int)diameter, (int)diameter);
-        g2d.setColor(Color.BLACK);
-        g2d.drawOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int)diameter, (int)diameter);
-
+        List<Ball> balls = controller.getModel().getBalls();
+        for(Ball ball : balls){
+            g2d.setColor(Color.RED);
+            float diameter = balls.get(0).getRadius() * 2;
+            g2d.fillOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int)diameter, (int)diameter);
+            g2d.setColor(Color.BLACK);
+            g2d.drawOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int)diameter, (int)diameter);
+        }
     }
 
     private void drawBricks(Graphics2D g2d) {
@@ -80,19 +74,8 @@ public class GamePanel extends JPanel {
     }
 
     private void drawPowerUp(Graphics2D g2d) {
-        for (PowerUp powerUp : controller.getModel().getPowerUpsOnScreen()) {
-            switch (powerUp.getType()) {
-                case DOUBLE_BALL:
-                    g2d.setColor(Color.YELLOW); // Scegli un colore per questo tipo di power-up
-                    break;
-                case REVERSE_CONTROLS:
-                    g2d.setColor(Color.MAGENTA); // Un altro colore per un tipo diverso di power-up
-                    break;
-            }
-            float x = powerUp.getX();
-            float y = powerUp.getY();
-            float size = powerUp.getSize(); // La dimensione del power-up
-            g2d.fillOval((int) x, (int) y, (int) size, (int) size); // Qui stiamo disegnando un cerchio
+        for (GameEffect effect : controller.getModel().getEffectsOnScreen()) {
+            effect.render(g2d);
         }
     }
 

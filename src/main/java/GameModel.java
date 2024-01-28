@@ -4,13 +4,13 @@ import java.util.List;
 
 public class GameModel {
     private Paddle paddle;
-    private Ball ball;
+    private List<Ball> balls;
     private BrickMap bricks;
     private int lives;
     private static final int initialLives = 3;
     private final int panelWidth;
     private final int panelHeight;
-    private List<PowerUp> powerUpsOnScreen = new ArrayList<>();
+    private List<GameEffect> effects = new ArrayList<>();
 
     public GameModel(int panelWidth, int panelHeight) {
         this.panelWidth = panelWidth;
@@ -21,67 +21,81 @@ public class GameModel {
     private void initializeGame() {
         // Inizializzazione degli oggetti di gioco
         paddle = new Paddle();
-        ball = new Ball();
         bricks = new BrickMap();
         bricks.createBricks(panelWidth);
         lives = initialLives;
-        PowerUp testPowerUp = new PowerUp(PowerUp.Type.DOUBLE_BALL, 100, 100); // Example position
-        powerUpsOnScreen.add(testPowerUp);
-        resetGameObjects();
+        resetGamePositions();
     }
 
-    private void resetGameObjects() {
-        // Reimposta paddle e ball
+    private void resetGamePositions(){
+        balls = new ArrayList<>();
+        addBall(new Ball());
         paddle.setPosition(panelWidth, panelHeight);
-        ball.setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
+        balls.get(0).setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
     }
-
+    public void addBall(Ball newBall) {
+        balls.add(newBall);
+    }
+    public void removeBall(Ball ball) {
+        balls.remove(ball);
+    }
     public void update() {
         // Aggiorna lo stato del gioco
-        updatePowerUps();
-        checkPowerUpCollisions();
-        for (PowerUp powerUp : powerUpsOnScreen) {
+        updateEffects();
+        checkEffectsCollisions();
+        for (GameEffect powerUp : effects) {
             powerUp.moveDown();
         }
-        ball.move();
-        checkCollisions();
-
+        checkBallCollisions();
     }
-    public void checkPowerUpCollisions() {
-        for (Iterator<PowerUp> iterator = powerUpsOnScreen.iterator(); iterator.hasNext();) {
-            PowerUp powerUp = iterator.next();
-            if (Collision.checkPowerUpCollisionWithPaddle(powerUp, paddle)) {
-                activatePowerUp(powerUp); // Attiva il power-up
-                iterator.remove(); // Rimuovi il power-up dopo l'attivazione
+    public void checkEffectsCollisions() {
+        for (Iterator<GameEffect> iterator = effects.iterator(); iterator.hasNext();) {
+            GameEffect effect = iterator.next();
+            if (Collision.checkPowerUpCollisionWithPaddle(effect, paddle)) {
+                effect.setCollected(true); // Segna il power-up come raccolto
+                activateEffect(effect); // Attiva il power-up
+            }
+        }
+        effects.removeIf(GameEffect::isCollected); // Rimuovi i power-up raccolti
+    }
+
+    private void activateEffect(GameEffect effect) {
+        effect.activate(this);
+    }
+
+    public void updateEffects() {
+        Iterator<GameEffect> iterator = effects.iterator();
+        while (iterator.hasNext()) {
+            GameEffect effect = iterator.next();
+            effect.moveDown();
+            if (!effect.isCollected() && effect.getY() > panelHeight) {
+                iterator.remove(); // Rimuovi l'elemento usando l'iterator
             }
         }
     }
 
-    private void activatePowerUp(PowerUp powerUp) {
-        // Qui attivi l'effetto del power-up
-        // Implementa la logica specifica per il tipo di power-up
+    private void checkBallCollisions() {
+        Iterator<Ball> iterator = balls.iterator();
+        while (iterator.hasNext()) {
+            Ball ball = iterator.next();
+            ball.move();
+            boolean ballLost = Collision.checkWallCollision(ball, panelWidth, panelHeight);
+            if (ballLost) {
+                if (balls.size() == 1) {
+                    // Se questa è l'unica palla, rimuovi una vita
+                    lives--;
+                    if (lives > 0) {
+                        resetGamePositions(); // Resetta le posizioni se il gioco continua
+                    }
+                }
+                iterator.remove(); // Rimuovi la palla uscita dal pannello
+                continue; // Prosegui con la prossima palla
+            }
+            Collision.checkCollisionWithPaddle(ball, paddle);
+            Collision.checkCollisionWithBricks(ball, bricks, this);
+        }
     }
-    public void updatePowerUps() {
-        for (Iterator<PowerUp> iterator = powerUpsOnScreen.iterator(); iterator.hasNext();) {
-            PowerUp powerUp = iterator.next();
-            powerUp.moveDown();
 
-            if (powerUp.getY() > panelHeight) {
-                iterator.remove(); // Rimuove il power-up se è fuori dallo schermo
-            }
-        }
-    }
-    private void checkCollisions() {
-        // Gestisci le collisioni qui
-        if (Collision.checkWallCollision(ball, panelWidth, panelHeight)) {
-            lives--;
-            if (lives >= 0) {
-                resetGameObjects();
-            }
-        }
-        Collision.checkCollisionWithPaddle(ball, paddle);
-        Collision.checkCollisionWithBricks(ball, bricks,this);
-    }
     public void setPaddlePosition(int newX) {
         paddle.setX(newX);
     }
@@ -92,14 +106,14 @@ public class GameModel {
         paddle.moveRight(panelWidth);
     }
 
-    public void addPowerUp(PowerUp powerUp) {
-        powerUpsOnScreen.add(powerUp);
+    public void addEffect(GameEffect effect) {
+        effects.add(effect);
     }
-    public List<PowerUp> getPowerUpsOnScreen() {
-        return powerUpsOnScreen;
+    public List<GameEffect> getEffectsOnScreen() {
+        return effects;
     }
     public boolean isGameOver() {
-        return lives <= 0;
+        return lives ==0;
     }
     public boolean isVictory() {
         return bricks.areAllBricksGone();
@@ -107,8 +121,8 @@ public class GameModel {
     public Paddle getPaddle() {
         return paddle;
     }
-    public Ball getBall() {
-        return ball;
+    public List<Ball> getBalls() {
+        return balls;
     }
     public BrickMap getBricks() {
         return bricks;
@@ -116,6 +130,5 @@ public class GameModel {
     public int getLives() {
         return lives;
     }
-
 
 }
