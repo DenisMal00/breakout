@@ -3,7 +3,7 @@ public class Ball {
     private static final int radius = 10; // Scegli un raggio appropriato per la pallina
     private float dx = 1f ; // Velocità orizzontale
     private float dy = -1f; // Velocità verticale (negativa per muoversi verso l'alto)
-    private static final float MAX_X_SPEED_CHANGE = 1f; // Adjust this based on your game's requirements
+    private float maxSpeedChange = 1f; // Adjust this based on your game's requirements
 
     // Costruttore
     public Ball() {
@@ -53,8 +53,20 @@ public class Ball {
     }
     public void reversePaddleCollision(float impactPoint) {
         reverseDirectionY();
-        dx=dx + impactPoint * MAX_X_SPEED_CHANGE;
+        dx=dx + impactPoint * maxSpeedChange;
         // Clamp the X speed to avoid excessive values
-        dx=(Math.min(Math.max(dx, -MAX_X_SPEED_CHANGE), MAX_X_SPEED_CHANGE));
+        dx=(Math.min(Math.max(dx, -maxSpeedChange), maxSpeedChange));
+    }
+
+    public void increaseSpeed(float speedBoost) {
+        dx*=speedBoost;
+        dy*=speedBoost;
+        maxSpeedChange*=speedBoost;
+    }
+
+    public void decreaseSpeed(float speedBoost) {
+        dx/=speedBoost;
+        dy/=speedBoost;
+        maxSpeedChange/=speedBoost;
     }
 }

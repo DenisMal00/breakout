@@ -5,25 +5,26 @@ public class GameEffectFactory {
     public static GameEffect createEffect(GameEffectType type, int x, int y) {
         switch (type) {
             case DOUBLE_BALL:
-                return new DoubleBallEffect(x, y);
+                return new DoubleBallEffect(type,x, y);
             case REVERSE_CONTROLS:
-                return new ReverseControlsEffect(x, y);
+                return new ReverseControlsEffect(type,x, y);
+            case EXTRA_LIFE:
+                return new ExtraLifeEffect(type,x,y);
+            case SPEED_BOOST:
+                return new SpeedBoostEffect(type,x,y);
+            case FORCE_FIELD:
+                return new ForceFieldEffect(type,x,y);
         }
         return null;
     }
 
     public static GameEffect createRandomPowerUp(int x, int y) {
-        if (random.nextInt(10) < 5) { // Circa 33% di probabilità
+        if (random.nextInt(10) < 8) { // Circa 33% di probabilità
             GameEffectType[] types = GameEffectType.values();
             GameEffectType randomType = types[random.nextInt(types.length)];
-            return createEffect(randomType, x, y);
+            return createEffect(GameEffectType.FORCE_FIELD, x, y);
         }
         return null;
     }
 }
 
-enum GameEffectType {
-    DOUBLE_BALL,
-    REVERSE_CONTROLS
-    // Altri tipi...
-}

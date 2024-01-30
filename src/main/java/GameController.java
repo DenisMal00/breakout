@@ -11,10 +11,8 @@ public class GameController implements ActionListener {
     private final Consumer<String> onGameEnd; // Callable per gestire la fine del gioco
     private long lastMouseActivityTime;
     private boolean isMouseControlActive;
-    private static final long MOUSE_INACTIVITY_THRESHOLD = 300; // tempo in millisecondi
+    private static final long MOUSE_INACTIVITY_THRESHOLD = 300; // 1.5 secondi
     public static final int MAX_PADDLE_SPEED = 8;
-
-
 
     public GameController(GameModel model, Consumer<String> onGameEnd) {
         this.model = model;
@@ -56,9 +54,17 @@ public class GameController implements ActionListener {
         isMouseControlActive = true;
 
         Paddle paddle = model.getPaddle();
-        int targetX = mouseX - paddle.getWidth() / 2;
+        int targetX;
 
-        // Limita la velocità di movimento del paddle
+        if (model.getPaddle().isControlInverted()) {
+            // Calcola la posizione target invertendo il movimento
+            targetX = view.getWidth() - mouseX - paddle.getWidth() / 2;
+        } else {
+            // Calcola la posizione target normalmente
+            targetX = mouseX - paddle.getWidth() / 2;
+        }
+
+        // Limita la velocità di movimento del paddle e aggiorna la sua posizione
         int deltaX = targetX - paddle.getX();
         if (deltaX > MAX_PADDLE_SPEED) {
             deltaX = MAX_PADDLE_SPEED;
@@ -66,12 +72,10 @@ public class GameController implements ActionListener {
             deltaX = -MAX_PADDLE_SPEED;
         }
 
-        // Calcola la nuova posizione del paddle
         int newX = Math.max(0, Math.min(paddle.getX() + deltaX, view.getWidth() - paddle.getWidth()));
-
-        // Aggiorna la posizione del paddle nel modello
         model.setPaddlePosition(newX);
     }
+
     private void checkGameStatus() {
         if (model.isGameOver()) {
             timer.stop();

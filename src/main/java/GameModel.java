@@ -10,7 +10,10 @@ public class GameModel {
     private static final int initialLives = 3;
     private final int panelWidth;
     private final int panelHeight;
-    private List<GameEffect> effects = new ArrayList<>();
+    private List<GameEffect> droppingEffects = new ArrayList<>();
+    private List<GameEffect> activeEffects = new ArrayList<>();
+    private ForceField forceField;
+
 
     public GameModel(int panelWidth, int panelHeight) {
         this.panelWidth = panelWidth;
@@ -20,6 +23,7 @@ public class GameModel {
 
     private void initializeGame() {
         // Inizializzazione degli oggetti di gioco
+        forceField = new ForceField(panelHeight);
         paddle = new Paddle();
         bricks = new BrickMap();
         bricks.createBricks(panelWidth);
@@ -33,84 +37,114 @@ public class GameModel {
         paddle.setPosition(panelWidth, panelHeight);
         balls.get(0).setInitialPosition(paddle.getX(), paddle.getY(), paddle.getWidth());
     }
+    public void setForceFieldActive(boolean active) {
+        forceField.setActive(active);
+    }
+
+    public boolean isForceFieldActive() {
+        return forceField.isActive();
+    }
+
+    public ForceField getForceField() {
+        return forceField;
+    }
     public void addBall(Ball newBall) {
         balls.add(newBall);
     }
-    public void removeBall(Ball ball) {
-        balls.remove(ball);
-    }
     public void update() {
         // Aggiorna lo stato del gioco
-        updateEffects();
-        checkEffectsCollisions();
-        for (GameEffect powerUp : effects) {
-            powerUp.moveDown();
-        }
+        checkEffectsStatus();
+        checkActiveEffects();
         checkBallCollisions();
     }
-    public void checkEffectsCollisions() {
-        for (Iterator<GameEffect> iterator = effects.iterator(); iterator.hasNext();) {
+    private void checkActiveEffects() {
+        Iterator<GameEffect> iterator = activeEffects.iterator();
+        while (iterator.hasNext()) {
             GameEffect effect = iterator.next();
-            if (Collision.checkPowerUpCollisionWithPaddle(effect, paddle)) {
-                effect.setCollected(true); // Segna il power-up come raccolto
-                activateEffect(effect); // Attiva il power-up
+            if (effect.isEffectExpired()) {
+                effect.deactivate(this);
+                iterator.remove();
             }
         }
-        effects.removeIf(GameEffect::isCollected); // Rimuovi i power-up raccolti
     }
 
-    private void activateEffect(GameEffect effect) {
-        effect.activate(this);
-    }
-
-    public void updateEffects() {
-        Iterator<GameEffect> iterator = effects.iterator();
+    public void checkEffectsStatus() {
+        Iterator<GameEffect> iterator = droppingEffects.iterator();
         while (iterator.hasNext()) {
             GameEffect effect = iterator.next();
             effect.moveDown();
-            if (!effect.isCollected() && effect.getY() > panelHeight) {
+            if (effect.getY() > panelHeight) {
                 iterator.remove(); // Rimuovi l'elemento usando l'iterator
+            }
+            else if (Collision.checkPowerUpCollisionWithPaddle(effect, paddle)) {
+                addActiveEffect(effect);
+                iterator.remove();
             }
         }
     }
+    public void addActiveEffect(GameEffect newEffect) {
+        // Rimuovi qualsiasi effetto attivo dello stesso tipo
+        activeEffects.removeIf(effect -> {
+            if (effect.getEffectType() == newEffect.getEffectType()) {
+                effect.deactivate(this);
+                return true;
+            }
+            return false;
+        });
 
+        // Aggiungi il nuovo effetto alla lista degli effetti attivi e attivalo
+        activeEffects.add(newEffect);
+        newEffect.activate(this);
+    }
     private void checkBallCollisions() {
         Iterator<Ball> iterator = balls.iterator();
         while (iterator.hasNext()) {
             Ball ball = iterator.next();
             ball.move();
-            boolean ballLost = Collision.checkWallCollision(ball, panelWidth, panelHeight);
+            Collision.checkCollisionWithPaddle(ball, paddle);
+            Collision.checkCollisionWithBricks(ball, bricks, this);
+            boolean ballLost = Collision.checkWallCollision(ball, panelWidth, panelHeight, getForceField());
             if (ballLost) {
                 if (balls.size() == 1) {
                     // Se questa è l'unica palla, rimuovi una vita
                     lives--;
                     if (lives > 0) {
                         resetGamePositions(); // Resetta le posizioni se il gioco continua
+                        removeAllEffects();
                     }
                 }
                 iterator.remove(); // Rimuovi la palla uscita dal pannello
-                continue; // Prosegui con la prossima palla
             }
-            Collision.checkCollisionWithPaddle(ball, paddle);
-            Collision.checkCollisionWithBricks(ball, bricks, this);
         }
     }
+    private void removeAllEffects() {
+        // Disattiva e rimuovi tutti gli effetti attivi
+        for (GameEffect effect : activeEffects) {
+            effect.deactivate(this);
+        }
+        activeEffects.clear();
 
+        // Rimuovi tutti gli effetti in caduta
+        droppingEffects.clear();
+    }
+    public void incrementLives() {
+        lives++;
+    }
     public void setPaddlePosition(int newX) {
         paddle.setX(newX);
     }
     public void movePaddleLeft() {
-        paddle.moveLeft();
+        paddle.moveLeft(panelWidth);
     }
     public void movePaddleRight() {
         paddle.moveRight(panelWidth);
     }
 
     public void addEffect(GameEffect effect) {
-        effects.add(effect);
+        droppingEffects.add(effect);
     }
     public List<GameEffect> getEffectsOnScreen() {
-        return effects;
+        return droppingEffects;
     }
     public boolean isGameOver() {
         return lives ==0;
@@ -130,5 +164,4 @@ public class GameModel {
     public int getLives() {
         return lives;
     }
-
 }

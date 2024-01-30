@@ -6,7 +6,6 @@ public class Collision {
         if (!collisionArea.isEmpty()) {
             double ballBottomY = ball.getY() + ball.getRadius() * 2;
             double paddleTopY = paddle.getY();
-
             // Verifica che la pallina stia colpendo la parte superiore del paddle
             // e che si muova verso il basso
             if (ballBottomY >= paddleTopY && ball.getY() < paddleTopY && ball.getDy() > 0) {
@@ -47,7 +46,9 @@ public class Collision {
             }
             // Rendi invisibile il mattone e gestisci la collisione
             if (collidedBrick.isDestructable()) {
-                GameEffect newEffect = GameEffectFactory.createRandomPowerUp(collidedBrick.getX(), collidedBrick.getY());
+                int centerX = collidedBrick.getX() + collidedBrick.getWidth() / 2;
+                int centerY = collidedBrick.getY() + collidedBrick.getHeight() / 2;
+                GameEffect newEffect = GameEffectFactory.createRandomPowerUp(centerX, centerY);
                 if (newEffect != null) {
                     gameModel.addEffect(newEffect);
                 }
@@ -56,7 +57,7 @@ public class Collision {
         }
     }
 
-    public static boolean checkWallCollision(Ball ball, int panelWidth, int panelHeight) {
+    public static boolean checkWallCollision(Ball ball, int panelWidth,int panelHeight, ForceField forceField) {
         float x = ball.getX();
         float y = ball.getY();
         float radius = ball.getRadius();
@@ -65,11 +66,15 @@ public class Collision {
         }
         if (y < radius) {
             ball.reverseDirectionY(); // Inverti la direzione verticale
+        } else if (forceField.isActive() && y >= forceField.getYPosition() - radius) {
+            // La pallina collide con il campo di forza
+            ball.reverseDirectionY(); // Inverti la direzione verticale
         } else if (y > panelHeight) {
             return true; // La pallina è uscita dal pannello
         }
         return false; // La pallina è ancora all'interno del pannello
     }
+
     private static Rectangle getCollisionArea(Ball ball, Collidable object) {
         // Calcola la bounding box della pallina
         Rectangle ballRect = new Rectangle(

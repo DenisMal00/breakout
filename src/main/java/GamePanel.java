@@ -41,8 +41,15 @@ public class GamePanel extends JPanel {
         drawBall(g2d);
         drawLives(g2d);
         drawPowerUp(g2d);
+        drawForceField(g2d);
     }
-
+    private void drawForceField(Graphics2D g2d) {
+        ForceField forceField = controller.getModel().getForceField();
+        if (forceField.isActive()) {
+            g2d.setColor(new Color(0, 255, 255, 64)); // Colore azzurro semitrasparente
+            g2d.fillRect(0, forceField.getYPosition(), getWidth(), forceField.getHeight());
+        }
+    }
     private void drawBall(Graphics2D g2d) {
         // Disegna la pallina
         List<Ball> balls = controller.getModel().getBalls();
@@ -69,8 +76,14 @@ public class GamePanel extends JPanel {
 
     private void drawPaddle(Graphics2D g2d) {
         Paddle paddle = controller.getModel().getPaddle();
-        g2d.setColor(Color.BLUE);
-        g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+        if(!paddle.isControlInverted()){
+            g2d.setColor(Color.BLUE);
+            g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+        }
+        else{
+            g2d.setColor(Color.RED);
+            g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+        }
     }
 
     private void drawPowerUp(Graphics2D g2d) {
