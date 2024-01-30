@@ -23,7 +23,7 @@ public class BrickMap {
                 if (col == cols - 1) {
                     adjustedBrickWidth = panelWidth - x;
                 }
-                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true));
+                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true,2));
             }
         }
     }

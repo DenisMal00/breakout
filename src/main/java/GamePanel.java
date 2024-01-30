@@ -66,7 +66,7 @@ public class GamePanel extends JPanel {
         BrickMap bricks = controller.getModel().getBricks();
         for (Brick brick : bricks.getBricks()) {
             if (brick.isVisible()) {
-                g2d.setColor(Color.GREEN); // Set the color of the brick
+                g2d.setColor(brick.getColor()); // Set the color of the brick
                 g2d.fillRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight()); // Draw the brick as a filled rectangle
                 g2d.setColor(Color.BLACK);
                 g2d.drawRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight());

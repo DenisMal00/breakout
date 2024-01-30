@@ -22,7 +22,7 @@ public class GameEffectFactory {
         if (random.nextInt(10) < 8) { // Circa 33% di probabilità
             GameEffectType[] types = GameEffectType.values();
             GameEffectType randomType = types[random.nextInt(types.length)];
-            return createEffect(GameEffectType.FORCE_FIELD, x, y);
+            return createEffect(randomType, x, y);
         }
         return null;
     }

@@ -52,7 +52,7 @@ public class Collision {
                 if (newEffect != null) {
                     gameModel.addEffect(newEffect);
                 }
-                collidedBrick.setVisible(false);
+                collidedBrick.hit(); // Decrementa i hitPoints e aggiorna il colore
             }
         }
     }
