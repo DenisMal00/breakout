@@ -6,7 +6,7 @@ public abstract class GameEffect {
     private float x;
     private float y;
     private static final float size=20;
-    private static final float DOWNWARD_SPEED = 0.3f; // Velocità di movimento verso il basso comune
+    private static final float DOWNWARD_SPEED = 0.7f; // Velocità di movimento verso il basso comune
     protected GameEffect(GameEffectType effectType, float x, float y) {
         this.effectType = effectType;
         this.x = x;
@@ -53,4 +53,12 @@ public abstract class GameEffect {
     public float getSize() {
         return size;
     }
+    protected boolean isAboutToExpire() {
+        // Logica generale per determinare se l'effetto sta per scadere
+        // Ad esempio, se restano meno di 2 secondi
+        return this.duration <= 2 * GameConstants.UPDATES_PER_SECOND;
+    }
+
+    public abstract void refreshEffectState(GameModel model);
+
 }

@@ -19,7 +19,7 @@ public class GameController implements ActionListener {
         this.onGameEnd = onGameEnd;
         this.lastMouseActivityTime=0;
         this.isMouseControlActive = false;
-        timer = new Timer(5, this);
+        timer = new Timer(GameConstants.TIMER_INTERVAL, this);
         timer.start();
     }
 

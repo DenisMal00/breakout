@@ -73,17 +73,19 @@ public class GamePanel extends JPanel {
             }
         }
     }
-
     private void drawPaddle(Graphics2D g2d) {
         Paddle paddle = controller.getModel().getPaddle();
         if(!paddle.isControlInverted()){
             g2d.setColor(Color.BLUE);
-            g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
         }
         else{
-            g2d.setColor(Color.RED);
-            g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+            if (paddle.isAboutToExpire())
+                g2d.setColor((System.currentTimeMillis() / 400) % 2 == 0 ? Color.RED : Color.BLUE);
+            else
+                g2d.setColor(Color.RED);
         }
+        g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+
     }
 
     private void drawPowerUp(Graphics2D g2d) {

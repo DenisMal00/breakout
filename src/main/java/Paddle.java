@@ -5,6 +5,8 @@ public class Paddle implements Collidable {
     private static final int marginFromBottom = 40;
     private static final int speed = 40; // Regola questa per cambiare la velocità del paddle
     private boolean isControlInverted = false;
+    private boolean isAboutToExpire=false;
+
 
     public Paddle(){}
     public void setPosition(int panelWidth, int panelHeight) {
@@ -65,5 +67,11 @@ public class Paddle implements Collidable {
 
     public void setX(int x) {
         this.x=x;
+    }
+    public void setAboutToExpire(boolean aboutToExpire) {
+        this.isAboutToExpire = aboutToExpire;
+    }
+    public boolean isAboutToExpire() {
+        return isAboutToExpire;
     }
 }

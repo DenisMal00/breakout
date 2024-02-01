@@ -18,15 +18,28 @@ public class BrickMap {
             for (int col = 0; col < cols; col++) {
                 int x = col * brickWidth;
                 int y = row * brickHeight;
-                // Per l'ultimo mattone della riga, aggiusta la larghezza per riempire lo spazio rimanente
-                int adjustedBrickWidth = brickWidth;
-                if (col == cols - 1) {
-                    adjustedBrickWidth = panelWidth - x;
-                }
-                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true,2));
+                int adjustedBrickWidth = (col == cols - 1) ? panelWidth - x : brickWidth;
+                int hitPoints = determineHitPoints(row, rows);
+
+                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight, true, hitPoints));
             }
         }
     }
+
+    private int determineHitPoints(int row, int totalRows) {
+        double upperThreshold = totalRows * 0.33; // I primi 33% delle righe
+        double middleThreshold = totalRows * 0.66; // Fino al 66% delle righe
+
+        if (row < upperThreshold) {
+            return 2; // Righe superiori: più resistenti (rossa)
+        } else if (row < middleThreshold) {
+            return 1; // Righe centrali: resistenza media (arancione)
+        } else {
+            return 0; // Righe inferiori: meno resistenti (verde)
+        }
+    }
+
+
 
     public ArrayList<Brick> getBricks() {
             return bricks;

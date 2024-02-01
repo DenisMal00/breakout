@@ -13,7 +13,7 @@ public class DoubleBallEffect extends GameEffect {
         Ball createdBall;
         Ball existingBall = model.getBalls().get(0); // Prendi la palla esistente
         // Crea una nuova palla con proprietà simili
-        createdBall = new Ball(existingBall.getX(),existingBall.getY(),-existingBall.getDx(),existingBall.getDy());
+        createdBall = new Ball(existingBall.getX(),existingBall.getY(),-existingBall.getDx(),existingBall.getDy(), existingBall.getMaxSpeedChange());
         model.addBall(createdBall);    }
 
     @Override
@@ -28,6 +28,11 @@ public class DoubleBallEffect extends GameEffect {
     @Override
     public boolean isEffectExpired() {
         return false;
+    }
+
+    @Override
+    public void refreshEffectState(GameModel model) {
+        return;
     }
 
 }

@@ -17,10 +17,15 @@ public class ForceFieldEffect extends GameEffect {
     public void deactivate(GameModel model) {
         model.setForceFieldActive(false);
     }
-
+    @Override
     public void render(Graphics2D g2d) {
-        g2d.setColor(Color.gray);
+        g2d.setColor(Color.green);
         g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
+    }
+
+    @Override
+    public void refreshEffectState(GameModel model) {
+        return;
     }
 
     // ... altri metodi se necessari ...

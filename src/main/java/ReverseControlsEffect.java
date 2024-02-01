@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class ReverseControlsEffect extends GameEffect {
-    private static final int DURATION = 2000; // 10 secondi di durata
+    private static final int DURATION = 1000; // 10 secondi di durata
 
     public ReverseControlsEffect(GameEffectType type,int x, int y) {
         super(type, x, y);
@@ -25,4 +25,13 @@ public class ReverseControlsEffect extends GameEffect {
         g2d.setColor(Color.MAGENTA);
         g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
     }
+    @Override
+    public void refreshEffectState(GameModel model) {
+        if (this.isAboutToExpire()) {
+            model.getPaddle().setAboutToExpire(true);
+        } else {
+            model.getPaddle().setAboutToExpire(false);
+        }
+    }
+
 }

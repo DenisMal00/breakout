@@ -19,8 +19,18 @@ public class ExtraLifeEffect extends GameEffect {
     public void deactivate(GameModel model) {
         // Nessuna azione specifica necessaria alla disattivazione, l'effetto è immediato
     }
+    @Override
     public void render(Graphics2D g2d) {
         g2d.setColor(Color.ORANGE);
         g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
+    }
+
+    @Override
+    public void refreshEffectState(GameModel model) {
+        return;
+    }
+    @Override
+    public boolean isEffectExpired() {
+        return false;
     }
 }

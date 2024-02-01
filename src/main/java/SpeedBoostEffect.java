@@ -23,9 +23,15 @@ public class SpeedBoostEffect extends GameEffect {
             ball.decreaseSpeed(speedBoost);
         }
     }
+    @Override
     public void render(Graphics2D g2d) {
         g2d.setColor(Color.gray);
         g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
+    }
+
+    @Override
+    public void refreshEffectState(GameModel model) {
+        return;
     }
     // ... altri metodi se necessari ...
 }

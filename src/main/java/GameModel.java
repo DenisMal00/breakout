@@ -61,6 +61,7 @@ public class GameModel {
         Iterator<GameEffect> iterator = activeEffects.iterator();
         while (iterator.hasNext()) {
             GameEffect effect = iterator.next();
+            effect.refreshEffectState(this);
             if (effect.isEffectExpired()) {
                 effect.deactivate(this);
                 iterator.remove();

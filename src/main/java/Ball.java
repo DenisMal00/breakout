@@ -3,20 +3,19 @@ public class Ball {
     private static final int radius = 10; // Scegli un raggio appropriato per la pallina
     private float dx = 1f ; // Velocità orizzontale
     private float dy = -1f; // Velocità verticale (negativa per muoversi verso l'alto)
-    private float maxSpeedChange = 1f; // Adjust this based on your game's requirements
+    private float maxSpeedChange = 0.7f; // Adjust this based on your game's requirements
 
     // Costruttore
     public Ball() {
         // La posizione iniziale verrà impostata separatamente
     }
-
-    public Ball(float x, float y, float dx, float dy){
+    public Ball(float x, float y, float dx, float dy, float maxSpeedChange) {
         this.x=x;
         this.y=y;
         this.dx=dx;
         this.dy=dy;
+        this.maxSpeedChange=maxSpeedChange;
     }
-
     // Metodo per impostare la posizione iniziale della pallina
     public void setInitialPosition(int paddleX, int paddleY, int paddleWidth) {
         // Posiziona la pallina appena sopra il centro del paddle
@@ -68,5 +67,9 @@ public class Ball {
         dx/=speedBoost;
         dy/=speedBoost;
         maxSpeedChange/=speedBoost;
+    }
+
+    public float getMaxSpeedChange() {
+        return maxSpeedChange;
     }
 }
