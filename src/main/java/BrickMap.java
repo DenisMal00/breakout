@@ -1,10 +1,12 @@
-import java.util.ArrayList;
+import lombok.Data;
 
+import java.util.ArrayList;
+@Data
 public class BrickMap {
     private final ArrayList<Brick> bricks;
-    private static final int rows=3;
-    private static final int cols=7;
-    private static final int brickHeight = 30; // Altezza fissa, ad esempio
+    private final int rows=3;
+    private final int cols=7;
+    private final int brickHeight = 30; // Altezza fissa, ad esempio
 
     public BrickMap() {
         bricks = new ArrayList<>();
@@ -20,12 +22,10 @@ public class BrickMap {
                 int y = row * brickHeight;
                 int adjustedBrickWidth = (col == cols - 1) ? panelWidth - x : brickWidth;
                 int hitPoints = determineHitPoints(row, rows);
-
-                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight, true, hitPoints));
+                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true,true, hitPoints));
             }
         }
     }
-
     private int determineHitPoints(int row, int totalRows) {
         double upperThreshold = totalRows * 0.33; // I primi 33% delle righe
         double middleThreshold = totalRows * 0.66; // Fino al 66% delle righe
@@ -38,13 +38,6 @@ public class BrickMap {
             return 0; // Righe inferiori: meno resistenti (verde)
         }
     }
-
-
-
-    public ArrayList<Brick> getBricks() {
-            return bricks;
-    }
-
     public boolean areAllBricksGone() {
         for(Brick brick : bricks) {
             if(brick.isVisible()) {

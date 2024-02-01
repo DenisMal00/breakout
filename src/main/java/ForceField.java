@@ -1,26 +1,13 @@
-public class ForceField {
-    private boolean isActive;
-    private final int yPosition;
-    private static final int height=40;
+import lombok.Data;
 
+@Data
+public class ForceField {
+    private boolean isActive=false;
+    private final int yPosition;
+    private final int height=40;
+
+    private boolean isAboutToExpire=false;
     public ForceField(int panelHeight) {
         this.yPosition = panelHeight - height; // Posizione Y del campo di forza
-        this.isActive = false;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public int getYPosition() {
-        return yPosition;
-    }
-
-    public int getHeight() {
-        return height;
     }
 }

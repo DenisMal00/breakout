@@ -1,7 +1,9 @@
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+@Data
 public class GameModel {
     private Paddle paddle;
     private List<Ball> balls;
@@ -39,14 +41,6 @@ public class GameModel {
     }
     public void setForceFieldActive(boolean active) {
         forceField.setActive(active);
-    }
-
-    public boolean isForceFieldActive() {
-        return forceField.isActive();
-    }
-
-    public ForceField getForceField() {
-        return forceField;
     }
     public void addBall(Ball newBall) {
         balls.add(newBall);
@@ -128,41 +122,19 @@ public class GameModel {
         // Rimuovi tutti gli effetti in caduta
         droppingEffects.clear();
     }
-    public void incrementLives() {
-        lives++;
+    public void incrementLives() {lives++;}
+    public void setPaddlePosition(int newX) {paddle.setX(newX);}
+    public void movePaddleLeft() {paddle.moveLeft(panelWidth);}
+    public void movePaddleRight() {paddle.moveRight(panelWidth);}
+    public void addEffect(GameEffect effect) {droppingEffects.add(effect);}
+    public boolean isGameOver() {return lives ==0;}
+    public boolean isVictory() {return bricks.areAllBricksGone();}
+    public void setControlInverted(boolean controlInverted) {paddle.setControlInverted(controlInverted);}
+    public void setPaddleAboutToExpire(boolean aboutToExpire) {paddle.setAboutToExpire(aboutToExpire);}
+    public void setForceFieldAboutToExpire(boolean aboutToExpire) {forceField.setAboutToExpire(aboutToExpire);}
+    public void setBallAboutToExpire(boolean aboutToExpire) {
+        for (Ball ball:balls)
+            ball.setAboutToExpire(aboutToExpire);
     }
-    public void setPaddlePosition(int newX) {
-        paddle.setX(newX);
-    }
-    public void movePaddleLeft() {
-        paddle.moveLeft(panelWidth);
-    }
-    public void movePaddleRight() {
-        paddle.moveRight(panelWidth);
-    }
-
-    public void addEffect(GameEffect effect) {
-        droppingEffects.add(effect);
-    }
-    public List<GameEffect> getEffectsOnScreen() {
-        return droppingEffects;
-    }
-    public boolean isGameOver() {
-        return lives ==0;
-    }
-    public boolean isVictory() {
-        return bricks.areAllBricksGone();
-    }
-    public Paddle getPaddle() {
-        return paddle;
-    }
-    public List<Ball> getBalls() {
-        return balls;
-    }
-    public BrickMap getBricks() {
-        return bricks;
-    }
-    public int getLives() {
-        return lives;
-    }
+    public Ball getFirstBall() {return balls.get(0);}
 }

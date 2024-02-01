@@ -1,16 +1,21 @@
-import java.awt.*;
+import lombok.Data;
+import lombok.Getter;
 
+import java.awt.*;
+@Data
 public abstract class GameEffect {
+    // Getter e Setter
     private final GameEffectType effectType;
     protected int duration;
     private float x;
     private float y;
-    private static final float size=20;
-    private static final float DOWNWARD_SPEED = 0.7f; // Velocità di movimento verso il basso comune
-    protected GameEffect(GameEffectType effectType, float x, float y) {
+    private final float size=20;
+    private final float DOWNWARD_SPEED = 0.7f; // Velocità di movimento verso il basso comune
+    protected GameEffect(GameEffectType effectType, float x, float y, int duration) {
         this.effectType = effectType;
         this.x = x;
         this.y = y;
+        this.duration=duration;
     }
 
     // Metodo astratto per attivare l'effetto
@@ -31,28 +36,12 @@ public abstract class GameEffect {
         y+=DOWNWARD_SPEED; // Velocità di movimento verso il basso comune
     }
 
-    // Getter e Setter
-    public GameEffectType getEffectType() {
-        return effectType;
-    }
-
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
     public boolean isEffectExpired() {
         decrementDuration();
         return duration <= 0;
     }
     public abstract void render(Graphics2D g2d);
 
-    public float getSize() {
-        return size;
-    }
     protected boolean isAboutToExpire() {
         // Logica generale per determinare se l'effetto sta per scadere
         // Ad esempio, se restano meno di 2 secondi

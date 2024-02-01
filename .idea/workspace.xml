@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;implementazione diversi tipi di mattoni&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameConstants.java" afterDir="false" />
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Brick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ForceField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ForceField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameEffect.java" afterDir="false" />
@@ -58,7 +60,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build breakout.executor": "Run",
     "Gradle.breakout [:Main.main()].executor": "Run",
+    "Gradle.breakout.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
@@ -71,7 +75,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -84,7 +88,7 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="breakout.main" />
@@ -92,6 +96,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="breakout" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.breakout" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -117,7 +145,7 @@
       <workItem from="1705997880988" duration="10009000" />
       <workItem from="1706260576988" duration="1061000" />
       <workItem from="1706263805739" duration="97000" />
-      <workItem from="1706263909610" duration="72867000" />
+      <workItem from="1706263909610" duration="82877000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -242,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706630196117</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;">
+      <option name="closed" value="true" />
+      <created>1706797824990</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706797824990</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +313,7 @@
     <MESSAGE value="git commit -m &quot;implementazione duplicazione pallina&quot;" />
     <MESSAGE value="git commit -m &quot;implementazione inversione comandi&quot;" />
     <MESSAGE value="git commit -m &quot;implementazione diversi tipi di mattoni&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;implementazione diversi tipi di mattoni&quot;" />
+    <MESSAGE value="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;" />
   </component>
 </project>

@@ -30,31 +30,39 @@ public class GamePanel extends JPanel {
             }
         });
     }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-
         drawPaddle(g2d);
         drawBricks(g2d);
         drawBall(g2d);
-        drawLives(g2d);
         drawPowerUp(g2d);
         drawForceField(g2d);
+        drawLives(g2d);
     }
     private void drawForceField(Graphics2D g2d) {
-        ForceField forceField = controller.getModel().getForceField();
+        ForceField forceField = controller.getForceField();
         if (forceField.isActive()) {
-            g2d.setColor(new Color(0, 255, 255, 64)); // Colore azzurro semitrasparente
+            if (forceField.isAboutToExpire()) {
+                // Lampeggia il Force Field
+                g2d.setColor((System.currentTimeMillis() / 400) % 2 == 0 ? new Color(0, 255, 255, 64) : new Color(0, 255, 255, 255));
+            } else {
+                g2d.setColor(new Color(0, 255, 255, 255)); // Colore normale
+            }
             g2d.fillRect(0, forceField.getYPosition(), getWidth(), forceField.getHeight());
         }
     }
     private void drawBall(Graphics2D g2d) {
         // Disegna la pallina
-        List<Ball> balls = controller.getModel().getBalls();
+        List<Ball> balls = controller.getBalls();
         for(Ball ball : balls){
-            g2d.setColor(Color.RED);
+            if (ball.isAboutToExpire()) {
+                // Lampeggia la pallina
+                g2d.setColor((System.currentTimeMillis() / 500) % 2 == 0 ? Color.YELLOW : Color.RED);
+            } else {
+                g2d.setColor(Color.RED); // Colore normale della pallina
+            }
             float diameter = balls.get(0).getRadius() * 2;
             g2d.fillOval((int) (ball.getX() - ball.getRadius()), (int) (ball.getY() - ball.getRadius()), (int)diameter, (int)diameter);
             g2d.setColor(Color.BLACK);
@@ -63,7 +71,7 @@ public class GamePanel extends JPanel {
     }
 
     private void drawBricks(Graphics2D g2d) {
-        BrickMap bricks = controller.getModel().getBricks();
+        BrickMap bricks = controller.getBricks();
         for (Brick brick : bricks.getBricks()) {
             if (brick.isVisible()) {
                 g2d.setColor(brick.getColor()); // Set the color of the brick
@@ -74,7 +82,7 @@ public class GamePanel extends JPanel {
         }
     }
     private void drawPaddle(Graphics2D g2d) {
-        Paddle paddle = controller.getModel().getPaddle();
+        Paddle paddle = controller.getPaddle();
         if(!paddle.isControlInverted()){
             g2d.setColor(Color.BLUE);
         }
@@ -89,7 +97,7 @@ public class GamePanel extends JPanel {
     }
 
     private void drawPowerUp(Graphics2D g2d) {
-        for (GameEffect effect : controller.getModel().getEffectsOnScreen()) {
+        for (GameEffect effect : controller.getDroppingEffects()) {
             effect.render(g2d);
         }
     }
@@ -101,6 +109,6 @@ public class GamePanel extends JPanel {
         int x = 10; // Margine dal bordo sinistro
         int y = getHeight() - 10; // Margine dal bordo inferiore
 
-        g2d.drawString("Vite: " + controller.getModel().getLives(), x,y);
+        g2d.drawString("Vite: " + controller.getLives(), x,y);
     }
 }

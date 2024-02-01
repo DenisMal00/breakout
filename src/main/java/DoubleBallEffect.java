@@ -4,16 +4,15 @@ public class DoubleBallEffect extends GameEffect {
     private static final int DURATION = 1;
 
     public DoubleBallEffect(GameEffectType effectType,float x, float y) {
-        super(effectType,x, y);
-        super.duration=DURATION;
+        super(effectType,x, y,DURATION);
     }
 
     @Override
     public void activate(GameModel model) {
         Ball createdBall;
-        Ball existingBall = model.getBalls().get(0); // Prendi la palla esistente
+        Ball existingBall = model.getFirstBall(); // Prendi la palla esistente
         // Crea una nuova palla con proprietà simili
-        createdBall = new Ball(existingBall.getX(),existingBall.getY(),-existingBall.getDx(),existingBall.getDy(), existingBall.getMaxSpeedChange());
+        createdBall = new Ball(existingBall.getX(),existingBall.getY(),-existingBall.getDx(),existingBall.getDy(), existingBall.getMaxSpeedChange(),false);
         model.addBall(createdBall);    }
 
     @Override
@@ -26,13 +25,5 @@ public class DoubleBallEffect extends GameEffect {
         g2d.fillOval((int)super.getX(), (int)super.getY(), (int)super.getSize(), (int)super.getSize());
     }
     @Override
-    public boolean isEffectExpired() {
-        return false;
-    }
-
-    @Override
-    public void refreshEffectState(GameModel model) {
-        return;
-    }
-
+    public void refreshEffectState(GameModel model) {}
 }

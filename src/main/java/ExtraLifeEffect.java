@@ -5,8 +5,7 @@ public class ExtraLifeEffect extends GameEffect {
     private static final int DURATION = 1;
 
     public ExtraLifeEffect(GameEffectType type,int x, int y) {
-        super(type, x, y);
-        super.duration=DURATION;
+        super(type, x, y,DURATION);
     }
 
     @Override
@@ -26,11 +25,5 @@ public class ExtraLifeEffect extends GameEffect {
     }
 
     @Override
-    public void refreshEffectState(GameModel model) {
-        return;
-    }
-    @Override
-    public boolean isEffectExpired() {
-        return false;
-    }
+    public void refreshEffectState(GameModel model) {}
 }

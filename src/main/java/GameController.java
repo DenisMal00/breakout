@@ -1,9 +1,13 @@
+import lombok.Data;
+
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.function.Consumer;
 
+@Data
 public class GameController implements ActionListener {
     private  final GameModel model;
     private  GamePanel view;
@@ -23,10 +27,6 @@ public class GameController implements ActionListener {
         timer.start();
     }
 
-    public void setView(GamePanel view) {
-        this.view = view;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         // Controlla le condizioni di vittoria o sconfitta
@@ -42,13 +42,12 @@ public class GameController implements ActionListener {
         if (isMouseControlActive && System.currentTimeMillis() - lastMouseActivityTime < MOUSE_INACTIVITY_THRESHOLD) {
             return; // Ignora l'input della tastiera se il mouse è attivo
         }
-        if (keyCode == KeyEvent.VK_LEFT) {
-            model.movePaddleLeft();
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            model.movePaddleRight();
+        switch (keyCode) {
+            case KeyEvent.VK_LEFT -> model.movePaddleLeft();
+            case KeyEvent.VK_RIGHT -> model.movePaddleRight();
+            default -> {}
         }
     }
-
     public void movePaddleTo(int mouseX) {
         lastMouseActivityTime = System.currentTimeMillis();
         isMouseControlActive = true;
@@ -86,7 +85,15 @@ public class GameController implements ActionListener {
         }
     }
 
-    public GameModel getModel(){
-        return this.model;
-    }
+    public ForceField getForceField() {return model.getForceField();}
+
+    public List<Ball> getBalls() {return model.getBalls();}
+
+    public BrickMap getBricks() {return model.getBricks();}
+
+    public Paddle getPaddle() {return model.getPaddle();}
+
+    public List<GameEffect> getDroppingEffects() {return model.getDroppingEffects();}
+
+    public int getLives() {return model.getLives();}
 }

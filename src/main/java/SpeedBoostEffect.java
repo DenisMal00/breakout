@@ -4,8 +4,7 @@ public class SpeedBoostEffect extends GameEffect {
     private static final int DURATION = 2000; // 10 secondi in termini di cicli di aggiornamento
     private static final float speedBoost=2;
     public SpeedBoostEffect(GameEffectType type,int x, int y) {
-        super(type, x, y);
-        super.duration=DURATION;
+        super(type, x, y,DURATION);
     }
 
     @Override
@@ -21,6 +20,7 @@ public class SpeedBoostEffect extends GameEffect {
         // Ripristina la velocità normale delle palline
         for (Ball ball : model.getBalls()) {
             ball.decreaseSpeed(speedBoost);
+            model.setBallAboutToExpire(false);
         }
     }
     @Override
@@ -31,7 +31,7 @@ public class SpeedBoostEffect extends GameEffect {
 
     @Override
     public void refreshEffectState(GameModel model) {
-        return;
+        if (this.isAboutToExpire())
+            model.setBallAboutToExpire(true);
     }
-    // ... altri metodi se necessari ...
 }

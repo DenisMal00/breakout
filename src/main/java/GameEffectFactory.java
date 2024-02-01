@@ -22,7 +22,7 @@ public class GameEffectFactory {
         if (random.nextInt(10) < 8) { // Circa 33% di probabilità
             GameEffectType[] types = GameEffectType.values();
             GameEffectType randomType = types[random.nextInt(types.length)];
-            return createEffect(GameEffectType.REVERSE_CONTROLS, x, y);
+            return createEffect(GameEffectType.DOUBLE_BALL, x, y);
         }
         return null;
     }

@@ -4,20 +4,19 @@ public class ReverseControlsEffect extends GameEffect {
     private static final int DURATION = 1000; // 10 secondi di durata
 
     public ReverseControlsEffect(GameEffectType type,int x, int y) {
-        super(type, x, y);
-        super.duration=DURATION;
+        super(type, x, y,DURATION);
     }
 
     @Override
     public void activate(GameModel model) {
         // Attiva l'effetto di inversione dei comandi
-        model.getPaddle().setControlInverted(true);
+        model.setControlInverted(true);
     }
 
     @Override
     public void deactivate(GameModel model) {
         // Disattiva l'effetto di inversione dei comandi
-        model.getPaddle().setControlInverted(false);
+        model.setControlInverted(false);
     }
 
     @Override
@@ -27,11 +26,8 @@ public class ReverseControlsEffect extends GameEffect {
     }
     @Override
     public void refreshEffectState(GameModel model) {
-        if (this.isAboutToExpire()) {
-            model.getPaddle().setAboutToExpire(true);
-        } else {
-            model.getPaddle().setAboutToExpire(false);
-        }
+        if (this.isAboutToExpire())
+            model.setPaddleAboutToExpire(true);
     }
 
 }
