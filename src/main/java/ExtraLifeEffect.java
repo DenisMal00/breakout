@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class ExtraLifeEffect extends GameEffect {
     // Imposta una durata molto breve, poiché l'effetto si attiva immediatamente
@@ -6,6 +7,7 @@ public class ExtraLifeEffect extends GameEffect {
 
     public ExtraLifeEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
+        setImage("/extra_life.png");
     }
 
     @Override
@@ -18,12 +20,21 @@ public class ExtraLifeEffect extends GameEffect {
     public void deactivate(GameModel model) {
         // Nessuna azione specifica necessaria alla disattivazione, l'effetto è immediato
     }
-    @Override
-    public void render(Graphics2D g2d) {
-        g2d.setColor(Color.ORANGE);
-        g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
-    }
 
     @Override
     public void refreshEffectState(GameModel model) {}
+
+    @Override
+    public BufferedImage getPlaceholderImage() {
+        BufferedImage placeholderImage = new BufferedImage((int) super.getSize(), (int) super.getSize(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = placeholderImage.createGraphics();
+
+        // Imposta un colore di default (es. grigio)
+        g2d.setColor(Color.orange);
+        g2d.fillOval(0, 0, (int) super.getSize(), (int) super.getSize());
+
+        // Pulizia e restituzione dell'immagine
+        g2d.dispose();
+        return placeholderImage;
+    }
 }

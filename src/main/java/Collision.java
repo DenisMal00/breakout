@@ -46,10 +46,9 @@ public class Collision {
             }
             // Rendi invisibile il mattone e gestisci la collisione
             if (collidedBrick.isDestructable()) {
-                int centerX = collidedBrick.getX() + collidedBrick.getWidth() / 2;
-                int centerY = collidedBrick.getY() + collidedBrick.getHeight() / 2;
-                GameEffect newEffect = GameEffectFactory.createRandomPowerUp(centerX, centerY);
+                GameEffect newEffect = gameModel.getPowerUpForBrick(collidedBrick);
                 if (newEffect != null) {
+                    newEffect.setVisible(true); // Rendi visibile il power-up
                     gameModel.addEffect(newEffect);
                 }
                 collidedBrick.hit(); // Decrementa i hitPoints e aggiorna il colore

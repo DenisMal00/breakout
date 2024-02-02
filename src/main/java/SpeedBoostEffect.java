@@ -1,10 +1,12 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class SpeedBoostEffect extends GameEffect {
-    private static final int DURATION = 2000; // 10 secondi in termini di cicli di aggiornamento
+    private static final int DURATION = 1000; // 10 secondi in termini di cicli di aggiornamento
     private static final float speedBoost=2;
     public SpeedBoostEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
+        setImage("/speed_boost.png");
     }
 
     @Override
@@ -24,14 +26,21 @@ public class SpeedBoostEffect extends GameEffect {
         }
     }
     @Override
-    public void render(Graphics2D g2d) {
-        g2d.setColor(Color.gray);
-        g2d.fillOval((int) super.getX(), (int) super.getY(), (int) super.getSize(), (int) super.getSize());
-    }
-
-    @Override
     public void refreshEffectState(GameModel model) {
         if (this.isAboutToExpire())
             model.setBallAboutToExpire(true);
+    }
+   @Override
+    public BufferedImage getPlaceholderImage() {
+        BufferedImage placeholderImage = new BufferedImage((int) super.getSize(), (int) super.getSize(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = placeholderImage.createGraphics();
+
+        // Imposta un colore di default (es. grigio)
+        g2d.setColor(Color.gray);
+        g2d.fillOval(0, 0, (int) super.getSize(), (int) super.getSize());
+
+        // Pulizia e restituzione dell'immagine
+        g2d.dispose();
+        return placeholderImage;
     }
 }

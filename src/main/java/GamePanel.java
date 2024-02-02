@@ -1,8 +1,5 @@
 import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -57,9 +54,10 @@ public class GamePanel extends JPanel {
         // Disegna la pallina
         List<Ball> balls = controller.getBalls();
         for(Ball ball : balls){
+            Composite originalComposite = g2d.getComposite();
             if (ball.isAboutToExpire()) {
                 // Lampeggia la pallina
-                g2d.setColor((System.currentTimeMillis() / 500) % 2 == 0 ? Color.YELLOW : Color.RED);
+                g2d.setColor((System.currentTimeMillis() / 400) % 2 == 0 ? new Color(255, 0, 0, 128) : Color.red);
             } else {
                 g2d.setColor(Color.RED); // Colore normale della pallina
             }
@@ -98,7 +96,8 @@ public class GamePanel extends JPanel {
 
     private void drawPowerUp(Graphics2D g2d) {
         for (GameEffect effect : controller.getDroppingEffects()) {
-            effect.render(g2d);
+            if (effect.isVisible())
+                effect.render(g2d);
         }
     }
 
@@ -108,7 +107,6 @@ public class GamePanel extends JPanel {
         g2d.setFont(new Font("Arial", Font.BOLD, 18));
         int x = 10; // Margine dal bordo sinistro
         int y = getHeight() - 10; // Margine dal bordo inferiore
-
         g2d.drawString("Vite: " + controller.getLives(), x,y);
     }
 }

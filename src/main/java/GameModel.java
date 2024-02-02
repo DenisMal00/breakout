@@ -15,6 +15,8 @@ public class GameModel {
     private List<GameEffect> droppingEffects = new ArrayList<>();
     private List<GameEffect> activeEffects = new ArrayList<>();
     private ForceField forceField;
+    public EffectManager powerUpManager;
+
 
 
     public GameModel(int panelWidth, int panelHeight) {
@@ -29,6 +31,12 @@ public class GameModel {
         paddle = new Paddle();
         bricks = new BrickMap();
         bricks.createBricks(panelWidth);
+        droppingEffects.add(new SpeedBoostEffect(GameEffectType.SPEED_BOOST,0,50));
+        droppingEffects.get(0).setVisible(true);
+        droppingEffects.add(new ReverseControlsEffect(GameEffectType.REVERSE_CONTROLS,50,50));
+        droppingEffects.get(1).setVisible(true);
+
+        powerUpManager = new EffectManager(bricks);
         lives = initialLives;
         resetGamePositions();
     }
@@ -86,7 +94,6 @@ public class GameModel {
             }
             return false;
         });
-
         // Aggiungi il nuovo effetto alla lista degli effetti attivi e attivalo
         activeEffects.add(newEffect);
         newEffect.activate(this);
@@ -137,4 +144,5 @@ public class GameModel {
             ball.setAboutToExpire(aboutToExpire);
     }
     public Ball getFirstBall() {return balls.get(0);}
+    public GameEffect getPowerUpForBrick(Brick brick) {return powerUpManager.getPowerUpForBrick(brick);}
 }

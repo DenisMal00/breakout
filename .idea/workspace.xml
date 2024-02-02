@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;">
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti codice&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/EffectManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/double_ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extra_life.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/force_field.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/reverse_command.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/speed_boost.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BrickMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ForceField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ForceField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameEffectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectFactory.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Paddle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" afterDir="false" />
     </list>
@@ -67,6 +67,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/denismalasi/Desktop/Malasi/breakout/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +84,11 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
@@ -145,7 +150,7 @@
       <workItem from="1705997880988" duration="10009000" />
       <workItem from="1706260576988" duration="1061000" />
       <workItem from="1706263805739" duration="97000" />
-      <workItem from="1706263909610" duration="82877000" />
+      <workItem from="1706263909610" duration="102173000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -278,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706797824990</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="git commit -m &quot;miglioramenti codice&quot;">
+      <option name="closed" value="true" />
+      <created>1706808905491</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706808905491</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +327,7 @@
     <MESSAGE value="git commit -m &quot;implementazione inversione comandi&quot;" />
     <MESSAGE value="git commit -m &quot;implementazione diversi tipi di mattoni&quot;" />
     <MESSAGE value="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;gli effetti lampeggiano quando stanno per scadere&quot;" />
+    <MESSAGE value="git commit -m &quot;miglioramenti codice&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramenti codice&quot;" />
   </component>
 </project>
