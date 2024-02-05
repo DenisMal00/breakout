@@ -17,8 +17,6 @@ public class GameModel {
     private ForceField forceField;
     public EffectManager powerUpManager;
 
-
-
     public GameModel(int panelWidth, int panelHeight) {
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
@@ -32,6 +30,8 @@ public class GameModel {
         bricks = new BrickMap();
         bricks.createBricks(panelWidth);
         powerUpManager = new EffectManager(bricks);
+        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,50,50));
+        droppingEffects.get(0).setVisible(true);
         lives = initialLives;
         resetGamePositions();
     }

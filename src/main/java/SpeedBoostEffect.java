@@ -6,15 +6,13 @@ public class SpeedBoostEffect extends GameEffect {
     private static final float speedBoost=2;
     public SpeedBoostEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
-        setImage("/speed_boost.png", Color.GRAY);
     }
 
     @Override
     public void activate(GameModel model) {
         // Raddoppia la velocità di tutte le palline in gioco
-        for (Ball ball : model.getBalls()) {
+        for (Ball ball : model.getBalls())
             ball.increaseSpeed(speedBoost);
-        }
     }
 
     @Override

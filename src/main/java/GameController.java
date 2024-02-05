@@ -78,10 +78,10 @@ public class GameController implements ActionListener {
     private void checkGameStatus() {
         if (model.isGameOver()) {
             timer.stop();
-            onGameEnd.accept("Hai perso!");
+            onGameEnd.accept("You lose!");
         } else if (model.isVictory()) {
             timer.stop();
-            onGameEnd.accept("Hai vinto!");
+            onGameEnd.accept("You win!");
         }
     }
 

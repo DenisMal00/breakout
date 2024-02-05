@@ -6,7 +6,6 @@ public class ReverseControlsEffect extends GameEffect {
 
     public ReverseControlsEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
-        setImage("/reverse_command.png",Color.MAGENTA);
     }
 
     @Override
@@ -19,6 +18,7 @@ public class ReverseControlsEffect extends GameEffect {
     public void deactivate(GameModel model) {
         // Disattiva l'effetto di inversione dei comandi
         model.setControlInverted(false);
+        model.setPaddleAboutToExpire(false);
     }
 
     @Override

@@ -35,7 +35,7 @@ public class EffectManager {
         if (random.nextInt(10) < 8) {
             GameEffectType[] types = GameEffectType.values();
             GameEffectType randomType = types[random.nextInt(types.length)];
-            return createEffect(randomType, x, y);
+            return createEffect(GameEffectType.SPEED_BOOST, x, y);
         }
         return null;
     }

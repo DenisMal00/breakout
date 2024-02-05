@@ -7,7 +7,6 @@ public class DoubleBallEffect extends GameEffect {
 
     public DoubleBallEffect(GameEffectType effectType,float x, float y) {
         super(effectType,x, y,DURATION);
-        setImage("/double_ball.png", Color.YELLOW);
     }
 
     @Override
@@ -16,7 +15,8 @@ public class DoubleBallEffect extends GameEffect {
         Ball existingBall = model.getFirstBall(); // Prendi la palla esistente
         // Crea una nuova palla con proprietà simili
         createdBall = new Ball(existingBall.getX(),existingBall.getY(),-existingBall.getDx(),existingBall.getDy(), existingBall.getMaxSpeedChange(),false);
-        model.addBall(createdBall);    }
+        model.addBall(createdBall);
+    }
 
     @Override
     public void deactivate(GameModel model) {

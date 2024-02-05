@@ -7,7 +7,6 @@ public class ExtraLifeEffect extends GameEffect {
 
     public ExtraLifeEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
-        setImage("/extra_life.png", Color.ORANGE);
     }
 
     @Override

@@ -6,7 +6,6 @@ public class ForceFieldEffect extends GameEffect {
 
     public ForceFieldEffect(GameEffectType type,int x, int y) {
         super(type, x, y,DURATION);
-        setImage("/force_field.png", Color.GREEN);
     }
 
     @Override
@@ -17,6 +16,8 @@ public class ForceFieldEffect extends GameEffect {
     @Override
     public void deactivate(GameModel model) {
         model.setForceFieldActive(false);
+        model.setForceFieldAboutToExpire(false);
+
     }
 
     @Override
