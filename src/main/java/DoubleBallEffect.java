@@ -7,7 +7,7 @@ public class DoubleBallEffect extends GameEffect {
 
     public DoubleBallEffect(GameEffectType effectType,float x, float y) {
         super(effectType,x, y,DURATION);
-        setImage("/double_ball.png");
+        setImage("/double_ball.png", Color.YELLOW);
     }
 
     @Override
@@ -23,18 +23,4 @@ public class DoubleBallEffect extends GameEffect {
     }
     @Override
     public void refreshEffectState(GameModel model) {}
-
-    @Override
-    public BufferedImage getPlaceholderImage() {
-        BufferedImage placeholderImage = new BufferedImage((int) super.getSize(), (int) super.getSize(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = placeholderImage.createGraphics();
-
-        // Imposta un colore di default (es. grigio)
-        g2d.setColor(Color.yellow);
-        g2d.fillOval(0, 0, (int) super.getSize(), (int) super.getSize());
-
-        // Pulizia e restituzione dell'immagine
-        g2d.dispose();
-        return placeholderImage;
-    }
 }

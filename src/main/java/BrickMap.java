@@ -15,20 +15,19 @@ public class BrickMap {
     public void createBricks(int panelWidth) {
         bricks.clear();
         int brickWidth = panelWidth / cols;
-
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 int x = col * brickWidth;
                 int y = row * brickHeight;
                 int adjustedBrickWidth = (col == cols - 1) ? panelWidth - x : brickWidth;
-                int hitPoints = determineHitPoints(row, rows);
-                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true,true, hitPoints));
+                int hitPoints = determineHitPoints(row);
+                bricks.add(new Brick(x, y, adjustedBrickWidth, brickHeight,true, hitPoints));
             }
         }
     }
-    private int determineHitPoints(int row, int totalRows) {
-        double upperThreshold = totalRows * 0.33; // I primi 33% delle righe
-        double middleThreshold = totalRows * 0.66; // Fino al 66% delle righe
+    private int determineHitPoints(int row) {
+        double upperThreshold = rows * 0.33; // I primi 33% delle righe
+        double middleThreshold = rows * 0.66; // Fino al 66% delle righe
 
         if (row < upperThreshold) {
             return 2; // Righe superiori: più resistenti (rossa)

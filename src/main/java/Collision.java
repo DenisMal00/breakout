@@ -45,11 +45,13 @@ public class Collision {
                 ball.reverseDirectionX();
             }
             // Rendi invisibile il mattone e gestisci la collisione
-            if (collidedBrick.isDestructable()) {
-                GameEffect newEffect = gameModel.getPowerUpForBrick(collidedBrick);
-                if (newEffect != null) {
-                    newEffect.setVisible(true); // Rendi visibile il power-up
-                    gameModel.addEffect(newEffect);
+            if (collidedBrick.isDestructible()) {
+                if (collidedBrick.getHitPoints() == 0) {
+                    GameEffect newEffect = gameModel.getPowerUpForBrick(collidedBrick);
+                    if (newEffect != null) {
+                        newEffect.setVisible(true); // Rendi visibile il power-up
+                        gameModel.addEffect(newEffect);
+                    }
                 }
                 collidedBrick.hit(); // Decrementa i hitPoints e aggiorna il colore
             }

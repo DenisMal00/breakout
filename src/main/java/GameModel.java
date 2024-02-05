@@ -31,11 +31,6 @@ public class GameModel {
         paddle = new Paddle();
         bricks = new BrickMap();
         bricks.createBricks(panelWidth);
-        droppingEffects.add(new SpeedBoostEffect(GameEffectType.SPEED_BOOST,0,50));
-        droppingEffects.get(0).setVisible(true);
-        droppingEffects.add(new ReverseControlsEffect(GameEffectType.REVERSE_CONTROLS,50,50));
-        droppingEffects.get(1).setVisible(true);
-
         powerUpManager = new EffectManager(bricks);
         lives = initialLives;
         resetGamePositions();
@@ -111,8 +106,8 @@ public class GameModel {
                     // Se questa è l'unica palla, rimuovi una vita
                     lives--;
                     if (lives > 0) {
-                        resetGamePositions(); // Resetta le posizioni se il gioco continua
                         removeAllEffects();
+                        resetGamePositions(); // Resetta le posizioni se il gioco continua
                     }
                 }
                 iterator.remove(); // Rimuovi la palla uscita dal pannello

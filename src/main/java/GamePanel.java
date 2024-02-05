@@ -1,16 +1,25 @@
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class GamePanel extends JPanel {
     private final GameController controller;
+    private BufferedImage[] brickImages;
+
+
+
 
     public GamePanel(GameController controller) {
         this.controller = controller;
+        loadImages();
         setFocusable(true);
         requestFocusInWindow();
         addKeyListener(new KeyAdapter() {
@@ -23,20 +32,59 @@ public class GamePanel extends JPanel {
             @Override
             public void mouseMoved(MouseEvent e) {
                 controller.movePaddleTo(e.getX());
-                repaint();
             }
         });
+    }
+    private void loadImages() {
+        String[] imageFiles = {"/hitpoints_0.jpg", "/hitpoints_1.jpg", "/hitpoints_2.jpeg"};
+        brickImages = new BufferedImage[imageFiles.length];
+
+        for (int i = 0; i < imageFiles.length; i++) {
+            URL imageUrl = getClass().getResource(imageFiles[i]);
+            if (imageUrl != null) {
+                try {
+                    brickImages[i] = ImageIO.read(imageUrl);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    brickImages[i] = createPlaceholderImage(i); // Replace with a placeholder if failed to load
+                }
+            } else {
+                System.err.println("Resource not found: " + imageFiles[i]);
+                brickImages[i] = createPlaceholderImage(i); // Replace with a placeholder if not found
+            }
+        }
+    }
+
+    private BufferedImage createPlaceholderImage(int hitpoints) {
+        // Create a new image with transparency
+        BufferedImage placeholderImage = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = placeholderImage.createGraphics();
+        // Decide the color based on the hitpoints
+        switch (hitpoints) {
+            case 0 -> g2d.setColor(new Color(255, 0, 0, 128)); // Light red for hitpoints 0
+            case 1 -> g2d.setColor(Color.RED); // Normal red for hitpoints 1
+            case 2 -> g2d.setColor(new Color(128, 0, 0)); // Dark red for hitpoints 2
+            default -> g2d.setColor(Color.RED); // Default to normal red if an unexpected value is received
+        }
+        // Fill the entire image with the selected color
+        g2d.fillRect(0, 0, placeholderImage.getWidth(), placeholderImage.getHeight());
+        // Draw a black border around the image
+        g2d.setColor(Color.BLACK);
+        g2d.drawRect(0, 0, placeholderImage.getWidth(),  placeholderImage.getHeight());
+        // Dispose the graphics context and return the image
+        g2d.dispose();
+        return placeholderImage;
     }
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         drawPaddle(g2d);
-        drawBricks(g2d);
         drawBall(g2d);
         drawPowerUp(g2d);
         drawForceField(g2d);
         drawLives(g2d);
+        drawBricks(g2d);
     }
     private void drawForceField(Graphics2D g2d) {
         ForceField forceField = controller.getForceField();
@@ -72,10 +120,15 @@ public class GamePanel extends JPanel {
         BrickMap bricks = controller.getBricks();
         for (Brick brick : bricks.getBricks()) {
             if (brick.isVisible()) {
-                g2d.setColor(brick.getColor()); // Set the color of the brick
-                g2d.fillRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight()); // Draw the brick as a filled rectangle
-                g2d.setColor(Color.BLACK);
-                g2d.drawRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight());
+                BufferedImage brickImage = switch (brick.getHitPoints()) {
+                    case 0 -> brickImages[0];
+                    case 1 -> brickImages[1];
+                    case 2 -> brickImages[2];
+                    default -> null;
+                };
+                if (brickImage != null) {
+                    g2d.drawImage(brickImage, brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), null);
+                }
             }
         }
     }
@@ -91,13 +144,12 @@ public class GamePanel extends JPanel {
                 g2d.setColor(Color.RED);
         }
         g2d.fillRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
-
     }
 
     private void drawPowerUp(Graphics2D g2d) {
         for (GameEffect effect : controller.getDroppingEffects()) {
             if (effect.isVisible())
-                effect.render(g2d);
+                g2d.drawImage(effect.render(), (int)effect.getX(), (int)effect.getY(),(int)effect.getSize(), (int)effect.getSize(), null);
         }
     }
 

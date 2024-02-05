@@ -27,24 +27,22 @@ public abstract class GameEffect {
         this.isVisible = false;
     }
 
-    public void setImage(String path){
+    public void setImage(String path, Color color){
         try {
             URL imageUrl = getClass().getResource(path);
             if (imageUrl != null) {
                 powerUpImage = ImageIO.read(imageUrl);
             } else {
-                powerUpImage = getPlaceholderImage(); // Utilizza l'immagine di segnaposto
+                powerUpImage = getPlaceholderImage(color); // Utilizza l'immagine di segnaposto
                 System.out.println("Il percorso dell'immagine non è stato trovato o è errato: " + path);
             }
         } catch (IOException e) {
             System.err.println("Errore nel caricamento dell'immagine: " + e.getMessage());
 
             // Impostazione di un'immagine di default o di un segnaposto
-            powerUpImage = getPlaceholderImage();
+            powerUpImage = getPlaceholderImage(color);
         }
     }
-    public abstract BufferedImage getPlaceholderImage();
-    // Metodo astratto per attivare l'effetto
     public abstract void activate(GameModel model);
 
     // Metodo astratto per disattivare l'effetto
@@ -66,8 +64,8 @@ public abstract class GameEffect {
         decrementDuration();
         return duration <= 0;
     }
-    public void render(Graphics2D g2d){
-        g2d.drawImage(powerUpImage, (int)x, (int)y,(int)size, (int)size, null);
+    public BufferedImage render(){
+        return powerUpImage;
     }
 
     protected boolean isAboutToExpire() {
@@ -77,5 +75,19 @@ public abstract class GameEffect {
     }
 
     public abstract void refreshEffectState(GameModel model);
+
+    private BufferedImage getPlaceholderImage(Color color) {
+        BufferedImage placeholderImage = new BufferedImage((int) size, (int) size, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = placeholderImage.createGraphics();
+
+        // Imposta un colore di default (es. grigio)
+        g2d.setColor(color);
+        g2d.fillOval(0, 0, (int) size, (int) size);
+
+        // Pulizia e restituzione dell'immagine
+        g2d.dispose();
+        return placeholderImage;
+    }
+
 
 }

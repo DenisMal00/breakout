@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class EffectManager {
-    private Map<Brick, GameEffect> brickPowerUpMap = new HashMap<>();
+    private final Map<UUID, GameEffect> brickPowerUpMap = new HashMap<>();
     private static final Random random = new Random();
 
     public EffectManager(BrickMap bricks) {
@@ -10,15 +10,16 @@ public class EffectManager {
 
     private void generateAndAssociatePowerUps(BrickMap bricks) {
         for (Brick brick : bricks.getBricks()) {
-            if (brick.isDestructable()) {
+            if (brick.isDestructible()) {
                 GameEffect powerUp = createRandomPowerUp(brick.getX() + brick.getWidth() / 2, brick.getY() + brick.getHeight() / 2);
-                brickPowerUpMap.put(brick, powerUp);
+                brickPowerUpMap.put(brick.getId(), powerUp);
             }
         }
     }
 
     public GameEffect getPowerUpForBrick(Brick brick) {
-        return brickPowerUpMap.get(brick);
+        return brickPowerUpMap.get(brick.getId());
+
     }
     private GameEffect createEffect(GameEffectType type, int x, int y) {
         return switch (type) {
@@ -31,16 +32,12 @@ public class EffectManager {
     }
 
     private GameEffect createRandomPowerUp(int x, int y) {
-        if (random.nextInt(10) < 8) { // Circa 33% di probabilità
+        if (random.nextInt(10) < 8) {
             GameEffectType[] types = GameEffectType.values();
             GameEffectType randomType = types[random.nextInt(types.length)];
-            return createEffect(GameEffectType.SPEED_BOOST, x, y);
+            return createEffect(randomType, x, y);
         }
         return null;
-    }
-
-    public List<GameEffect> getAllPowerUps() {
-        return new ArrayList<>(brickPowerUpMap.values());
     }
 }
 
