@@ -10,10 +10,10 @@ import java.util.List;
 
 public class GamePanel extends JPanel {
     private final GameController controller;
-    ResourceManager images;
-    public GamePanel(GameController controller) {
-        images=new ResourceManager();
+    private ResourceManager images;
+    public GamePanel(GameController controller,ResourceManager resourceManager) {
         this.controller = controller;
+        images=resourceManager;
         setFocusable(true);
         requestFocusInWindow();
         addKeyListener(new KeyAdapter() {

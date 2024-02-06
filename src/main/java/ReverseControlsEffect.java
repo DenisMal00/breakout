@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
 public class ReverseControlsEffect extends GameEffect {
     private static final int DURATION = 1000; // 10 secondi di durata
 

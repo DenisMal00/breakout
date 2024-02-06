@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
 public class SpeedBoostEffect extends GameEffect {
     private static final int DURATION = 1000; // 10 secondi in termini di cicli di aggiornamento
     private static final float speedBoost=2;

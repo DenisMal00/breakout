@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
 public class ForceFieldEffect extends GameEffect {
     private static final int DURATION = 2000; // Durata dell'effetto in cicli di aggiornamento
 

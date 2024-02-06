@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
 public class ExtraLifeEffect extends GameEffect {
     // Imposta una durata molto breve, poiché l'effetto si attiva immediatamente
     private static final int DURATION = 1;

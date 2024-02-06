@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-
 public class DoubleBallEffect extends GameEffect {
     private static final int DURATION = 1;
 

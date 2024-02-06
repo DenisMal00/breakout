@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti GUI: mattoni&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ResourceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sfondo.jpg" afterDir="false" />
+    <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti GUI: sfondi e menu&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/BackgoundPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EffectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EffectManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" afterDir="false" />
     </list>
@@ -150,7 +146,7 @@
       <workItem from="1706263805739" duration="97000" />
       <workItem from="1706263909610" duration="115235000" />
       <workItem from="1707058154125" duration="3961000" />
-      <workItem from="1707062671082" duration="25364000" />
+      <workItem from="1707062671082" duration="30267000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -307,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707120832386</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="git commit -m &quot;miglioramenti GUI: sfondi e menu&quot;">
+      <option name="closed" value="true" />
+      <created>1707155496189</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1707155496189</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +350,7 @@
     <MESSAGE value="git commit -m &quot;miglioramenti codice&quot;" />
     <MESSAGE value="git commit -m &quot;miglioramenti GUI&quot;" />
     <MESSAGE value="git commit -m &quot;miglioramenti GUI: mattoni&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramenti GUI: mattoni&quot;" />
+    <MESSAGE value="git commit -m &quot;miglioramenti GUI: sfondi e menu&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramenti GUI: sfondi e menu&quot;" />
   </component>
 </project>
