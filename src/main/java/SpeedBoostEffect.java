@@ -1,24 +1,19 @@
 public class SpeedBoostEffect extends GameEffect {
-    private static final int DURATION = 1000; // 10 secondi in termini di cicli di aggiornamento
-    private static final float speedBoost=2;
     public SpeedBoostEffect(GameEffectType type,int x, int y) {
-        super(type, x, y,DURATION);
+        super(type, x, y,GameConstants.EFFECT_DURATION);
     }
 
     @Override
-    public void activate(GameModel model) {
-        // Raddoppia la velocità di tutte le palline in gioco
-        for (Ball ball : model.getBalls())
-            ball.increaseSpeed(speedBoost);
+    public void doActivate(GameModel model) {
+        model.getBalls().forEach(ball -> ball.increaseSpeed(GameConstants.BALL_SPEEDBOOST));
     }
 
     @Override
-    public void deactivate(GameModel model) {
-        // Ripristina la velocità normale delle palline
-        for (Ball ball : model.getBalls()) {
-            ball.decreaseSpeed(speedBoost);
-            model.setBallAboutToExpire(false);
-        }
+    public void doDeactivate(GameModel model) {
+        model.getBalls().forEach(ball -> {
+            ball.decreaseSpeed(GameConstants.BALL_SPEEDBOOST);
+            ball.setAboutToExpire(false);
+        });
     }
     @Override
     public void refreshEffectState(GameModel model) {

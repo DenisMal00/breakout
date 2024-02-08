@@ -7,32 +7,27 @@ import java.util.List;
 public class GameModel {
     private Paddle paddle;
     private List<Ball> balls;
-    private BrickMap bricks;
-    private int lives;
-    private static final int initialLives = 3;
+    private BrickMaps bricks;
+    private int lives=GameConstants.INITIAL_LIVES;
     private final int panelWidth;
     private final int panelHeight;
     private List<GameEffect> droppingEffects = new ArrayList<>();
     private List<GameEffect> activeEffects = new ArrayList<>();
     private ForceField forceField;
-    public EffectManager powerUpManager;
+    public GameEffectManager powerUpManager;
 
-    public GameModel(int panelWidth, int panelHeight) {
+    public GameModel(int panelWidth, int panelHeight,int level) {
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
-        initializeGame();
+        initializeGame(level);
     }
 
-    private void initializeGame() {
+    private void initializeGame(int level) {
         // Inizializzazione degli oggetti di gioco
         forceField = new ForceField(panelHeight);
         paddle = new Paddle();
-        bricks = new BrickMap();
-        bricks.createBricks(panelWidth);
-        powerUpManager = new EffectManager(bricks);
-        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,50,50));
-        droppingEffects.get(0).setVisible(true);
-        lives = initialLives;
+        bricks = new BrickMaps(level,panelWidth,panelHeight);
+        powerUpManager = new GameEffectManager(bricks);
         resetGamePositions();
     }
 
@@ -80,7 +75,7 @@ public class GameModel {
             }
         }
     }
-    public void addActiveEffect(GameEffect newEffect) {
+    private void addActiveEffect(GameEffect newEffect) {
         // Rimuovi qualsiasi effetto attivo dello stesso tipo
         activeEffects.removeIf(effect -> {
             if (effect.getEffectType() == newEffect.getEffectType()) {
@@ -120,17 +115,17 @@ public class GameModel {
             effect.deactivate(this);
         }
         activeEffects.clear();
-
         // Rimuovi tutti gli effetti in caduta
         droppingEffects.clear();
     }
     public void incrementLives() {lives++;}
     public void setPaddlePosition(int newX) {paddle.setX(newX);}
-    public void movePaddleLeft() {paddle.moveLeft(panelWidth);}
-    public void movePaddleRight() {paddle.moveRight(panelWidth);}
+    public void movePaddleLeft() {paddle.moveLeft();}
+    public void movePaddleRight() {paddle.moveRight();}
     public void addEffect(GameEffect effect) {droppingEffects.add(effect);}
     public boolean isGameOver() {return lives ==0;}
     public boolean isVictory() {return bricks.areAllBricksGone();}
+    public boolean isControlInverted(){return paddle.isControlInverted();}
     public void setControlInverted(boolean controlInverted) {paddle.setControlInverted(controlInverted);}
     public void setPaddleAboutToExpire(boolean aboutToExpire) {paddle.setAboutToExpire(aboutToExpire);}
     public void setForceFieldAboutToExpire(boolean aboutToExpire) {forceField.setAboutToExpire(aboutToExpire);}

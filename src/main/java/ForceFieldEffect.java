@@ -1,22 +1,16 @@
 public class ForceFieldEffect extends GameEffect {
-    private static final int DURATION = 2000; // Durata dell'effetto in cicli di aggiornamento
-
     public ForceFieldEffect(GameEffectType type,int x, int y) {
-        super(type, x, y,DURATION);
+        super(type, x, y,GameConstants.EFFECT_DURATION);
     }
-
     @Override
-    public void activate(GameModel model) {
+    public void doActivate(GameModel model) {
         model.setForceFieldActive(true);
-
     }
     @Override
-    public void deactivate(GameModel model) {
+    public void doDeactivate(GameModel model) {
         model.setForceFieldActive(false);
         model.setForceFieldAboutToExpire(false);
-
     }
-
     @Override
     public void refreshEffectState(GameModel model) {
         if (this.isAboutToExpire())

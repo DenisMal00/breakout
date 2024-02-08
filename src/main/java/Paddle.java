@@ -5,19 +5,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Paddle implements Collidable {
     private int x, y;
-    private final int width = 130;
-    private final int height = 20;
-    private final int marginFromBottom = 40;
-    private final int speed = 40; // Regola questa per cambiare la velocità del paddle
+    private final int width = GameConstants.PADDLE_WIDTH;
+    private final int height = GameConstants.PADDLE_HEIGHT;
+    private final int marginFromBottom = GameConstants.PADDLE_MARGIN_FROM_BOTTOM;
+    private final int speed = GameConstants.PADDLE_SPEED_KEYBOARD;
     private boolean isControlInverted = false;
     private boolean isAboutToExpire = false;
+    private int panelWidth;
     public void setPosition(int panelWidth, int panelHeight) {
-        // Initialize the paddle at the bottom center of the panel
-        x = panelWidth / 2 - width / 2; // Center the paddle horizontally
-        y = panelHeight - height - marginFromBottom; // Position the paddle above the bottom
+        this.panelWidth=panelWidth;
+        x = panelWidth / 2 - width / 2;
+        y = panelHeight - height - marginFromBottom;
     }
 
-    public void moveLeft(int panelWidth) {
+    public void moveLeft() {
         if (isControlInverted)
             x += speed;
         else
@@ -25,7 +26,7 @@ public class Paddle implements Collidable {
         checkMovement(panelWidth);
     }
 
-    public void moveRight(int panelWidth) {
+    public void moveRight() {
         if (isControlInverted)
             x -= speed;
         else
@@ -35,10 +36,10 @@ public class Paddle implements Collidable {
 
     private void checkMovement(int panelWidth) {
         if (x < 0) {
-            x = 0; // Impedisce al paddle di uscire dal pannello
+            x = 0;
         }
         if (x + width > panelWidth) {
-            x = panelWidth - width; // Impedisce al paddle di uscire dal pannello
+            x = panelWidth - width;
         }
     }
 }

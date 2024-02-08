@@ -1,20 +1,15 @@
 public class ExtraLifeEffect extends GameEffect {
-    // Imposta una durata molto breve, poiché l'effetto si attiva immediatamente
-    private static final int DURATION = 1;
-
     public ExtraLifeEffect(GameEffectType type,int x, int y) {
-        super(type, x, y,DURATION);
+        super(type, x, y,1);
     }
 
     @Override
-    public void activate(GameModel model) {
-        // Incrementa il conteggio delle vite nel modello di gioco
+    public void doActivate(GameModel model) {
         model.incrementLives();
     }
 
     @Override
-    public void deactivate(GameModel model) {
-        // Nessuna azione specifica necessaria alla disattivazione, l'effetto è immediato
+    public void doDeactivate(GameModel model) {
     }
 
     @Override

@@ -34,5 +34,4 @@ class BackgroundPanel extends JPanel {
 
         g2d.dispose(); // Rilascia la copia di Graphics2D
     }
-
 }
