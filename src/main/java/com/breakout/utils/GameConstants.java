@@ -1,3 +1,6 @@
+package com.breakout.utils;
+
+// Constants defining various parameters of the game like dimensions, speeds, durations, etc.
 public class GameConstants {
     public static final int TIMER_INTERVAL = 5;
     public static final int UPDATES_PER_SECOND = 1000 / TIMER_INTERVAL;

@@ -5,7 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti del codice&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/DoubleBallEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ExtraLifeEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/menu/BackgroundPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collidable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BackgroundPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/BrickMaps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Collidable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ForceField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ForceFieldEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/menu/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ReverseControlsEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/SpeedBoostEffect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,29 +79,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.Build breakout.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.breakout [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.breakout.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/denismalasi/Desktop/Malasi/breakout/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.Build breakout.executor": "Run",
+    "Gradle.breakout [:Main.main()].executor": "Run",
+    "Gradle.breakout.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/denismalasi/Desktop/Malasi/breakout/src/main/java/com/breakout/menu",
+    "last_opened_file_path": "/Users/denismalasi/Desktop/Malasi/breakout/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -79,6 +114,13 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.breakout.menu" />
+      <recent name="com.breakout.mvc" />
+      <recent name="com.breakout.gameEffects" />
+      <recent name="com.breakout.utils" />
+      <recent name="com.breakout.gamEffects" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -141,6 +183,7 @@
       <workItem from="1706263909610" duration="115235000" />
       <workItem from="1707058154125" duration="3961000" />
       <workItem from="1707062671082" duration="77911000" />
+      <workItem from="1707989614334" duration="8609000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -321,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707410279449</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="git commit -m &quot;miglioramenti del codice&quot;">
+      <option name="closed" value="true" />
+      <created>1707989631387</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1707989631387</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

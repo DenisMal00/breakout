@@ -1,3 +1,5 @@
+package com.breakout.utils;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,13 +12,14 @@ import java.util.logging.Level;
 
 
 public class ResourceManager {
-    private final Map<String, BufferedImage> images = new HashMap<>();
-    private static final Logger LOGGER = Logger.getLogger(ResourceManager.class.getName());
+    private final Map<String, BufferedImage> images = new HashMap<>(); // Stores loaded images.
+    private static final Logger LOGGER = Logger.getLogger(ResourceManager.class.getName()); // Logger for error reporting.
 
     public ResourceManager() {
         loadResources();
     }
 
+    // Loads image resources from files or creates placeholders if not found.
     private void loadResources() {
         loadResource("brick_-1","/hitpoints_-1.png",Color.DARK_GRAY,true);
         loadResource("brick_0", "/hitpoints_0.jpg",new Color(255, 0, 0, 128),true);
@@ -30,6 +33,7 @@ public class ResourceManager {
         loadResource("Background","/sfondo.jpg",Color.BLUE,false);
     }
 
+    // Attempts to load an individual resource from the specified path.
     private void loadResource(String name, String path, Color color,boolean includeBorder) {
         try {
             URL resourceUrl = getClass().getResource(path);
@@ -46,10 +50,13 @@ public class ResourceManager {
         }
     }
 
+    // Retrieves the image associated with the given name.
     public BufferedImage getImage(String name) {
         return images.get(name);
     }
 
+    // Creates a placeholder image of a specified color and size.
+    // Return a solid color image with an optional border.
     private BufferedImage createPlaceholderImage(Color color,boolean includeBorder) {
         BufferedImage placeholderImage = new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = placeholderImage.createGraphics();

@@ -1,3 +1,6 @@
+package com.breakout.objects;
+
+import com.breakout.utils.GameConstants;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -5,37 +8,31 @@ import java.util.Random;
 
 @Data
 public class BrickMaps {
-    private final ArrayList<Brick> bricks;
-    private final int brickHeight = GameConstants.BRICK_HEIGHT;
-    private int panelWidth;
-    private int panelHeight;
+    private final ArrayList<Brick> bricks; // List of bricks in the map.
+    private final int brickHeight = GameConstants.BRICK_HEIGHT; // Standard height for bricks.
+    private int panelWidth, panelHeight; // Dimensions of the game panel.
 
-    Random random = new Random();
-    public BrickMaps(int level, int panelWidth,int panelHeight) {
-        this.panelHeight=panelHeight;
-        this.panelWidth=panelWidth;
+    Random random = new Random(); // Random number generator for brick properties.
+
+    // Constructs a com.breakout.gameObjects.BrickMaps object and initializes the level layout.
+    public BrickMaps(int level, int panelWidth, int panelHeight) {
+        this.panelHeight = panelHeight;
+        this.panelWidth = panelWidth;
         bricks = new ArrayList<>();
-        setupLevel(level);
+        setupLevel(level); // Sets up the bricks based on the level.
     }
 
+    // Configures different levels with unique layouts.
     public void setupLevel(int level) {
         switch (level) {
-            case 1:
-                setupLevel1(3,7);
-                break;
-            case 2:
-                setupLevel2(7,11);
-                break;
-            case 3:
-                setupLevel3();
-                break;
-            case 4:
-                setupLevel4(50,20);
-                break;
-            default:
-                throw new IllegalArgumentException("Livello non supportato: " + level);
+            case 1: setupLevel1(3, 7); break;
+            case 2: setupLevel2(7, 11); break;
+            case 3: setupLevel3(); break;
+            case 4: setupLevel4(50, 20); break;
+            default: throw new IllegalArgumentException("Unsupported level: " + level);
         }
     }
+
 
     public void setupLevel4(int brickWidth, int brickHeight) {
         bricks.clear();
@@ -108,15 +105,18 @@ public class BrickMaps {
             }
         }
     }
+    // Determines hit points for bricks randomly.
     private int determineHitPoints() {
-        return random.nextInt(3);
+        return random.nextInt(3); // Random hit points between 0 and 2.
     }
+
+    // Checks if all destructible bricks have been destroyed.
     public boolean areAllBricksGone() {
-        for(Brick brick : bricks) {
-            if(brick.isVisible() && brick.isDestructible()) {
-                return false;
+        for (Brick brick : bricks) {
+            if (brick.isVisible() && brick.isDestructible()) {
+                return false; // Return false if any destructible brick is still visible.
             }
         }
-        return true;
+        return true; // All destructible bricks are gone.
     }
 }
