@@ -16,15 +16,22 @@ import java.util.function.Consumer;
 
 @Data
 public class GameController implements ActionListener {
-    private final GameModel model;
-    private GamePanel view;
-    private final Timer timer;
-    private final Consumer<String> onGameEnd;
-    private Consumer<Boolean> onGamePause;
+    /*
+     * Indicates whether the paddle is currently being controlled by mouse movements.
+     * This is used to prevent concurrent control conflicts between mouse and keyboard inputs.
+     * If the mouse is active, it takes precedence for controlling the paddle movement.
+     * The keyboard controls will only take effect if there has been a period of mouse inactivity,
+     * allowing the user to switch between control modes seamlessly.
+     */
     private long lastMouseActivityTime;
     private boolean isMouseControlActive;
-    public static final int MAX_PADDLE_SPEED = GameConstants.PADDLE_SPEED_MOUSE;
-    private boolean isPaused = false;
+    private final GameModel model; //Main game logic and state holder
+    private GamePanel view; //Graphical interface for game rendering
+    private final Timer timer; //Game update scheduling timer
+    private final Consumer<String> onGameEnd; //Callback to MemuManager for game end scenarios
+    private Consumer<Boolean> onGamePause; //Callback to MemuManager for game pause state changes
+    public static final int MAX_PADDLE_SPEED = GameConstants.PADDLE_SPEED_MOUSE; //Maximum speed the paddle can move, set based on mouse control
+    private boolean isPaused = false; //Flag for game's paused status
 
     // Constructor: Initializes the controller with a game model and end game handler
     public GameController(GameModel model, Consumer<String> onGameEnd) {
@@ -41,7 +48,7 @@ public class GameController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (!isPaused) {
             checkGameStatus(); // Check for win/lose conditions
-            deactivateMouseControlIfNeeded();
+            checkAndDeactivateMouseControl();
             model.update(); // Update game state
             view.repaint(); // Refresh game view
         }
@@ -105,7 +112,7 @@ public class GameController implements ActionListener {
     }
 
     // Deactivate mouse control if there is no activity within the threshold
-    private void deactivateMouseControlIfNeeded() {
+    private void checkAndDeactivateMouseControl() {
         if (System.currentTimeMillis() - lastMouseActivityTime > GameConstants.MOUSE_INACTIVITY_THRESHOLD) {
             isMouseControlActive = false;
         }

@@ -33,7 +33,7 @@ public class GameModel {
 
     // Sets up initial game objects and their positions.
     private void initializeGame(int level) {
-        forceField = new ForceField(panelHeight);
+        forceField = new ForceField(panelHeight,panelWidth);
         paddle = new Paddle();
         bricks = new BrickMaps(level, panelWidth, panelHeight);
         powerUpManager = new GameEffectManager(bricks);

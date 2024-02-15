@@ -5,9 +5,12 @@ import com.breakout.utils.GameConstants;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.awt.*;
+import java.awt.geom.RoundRectangle2D;
+
 @Data
 @NoArgsConstructor
-public class Paddle implements Collidable {
+public class Paddle implements Collidable, Drawable{
     private int x, y; // Position of the paddle.
     private final int width = GameConstants.PADDLE_WIDTH; // Width of the paddle.
     private final int height = GameConstants.PADDLE_HEIGHT; // Height of the paddle.
@@ -51,5 +54,18 @@ public class Paddle implements Collidable {
         if (x + width > panelWidth) {
             x = panelWidth - width;
         }
+    }
+
+    @Override
+    public void draw(Graphics2D g2d) {
+        // Shadow for depth effect
+        g2d.setColor(Color.BLACK);
+        g2d.fill(new RoundRectangle2D.Float(this.x + 1, this.y + 1, this.width, this.height, 15, 15));
+        // Paddle color
+        Color paddleColor = this.isControlInverted() ?
+                (this.isAboutToExpire() ? ((System.currentTimeMillis() / 400) % 2 == 0 ? Color.RED : Color.BLUE) : Color.RED) :
+                Color.BLUE;
+        g2d.setColor(paddleColor);
+        g2d.fill(new RoundRectangle2D.Float(this.x, this.y, this.width, this.height, 15, 15));
     }
 }

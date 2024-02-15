@@ -5,41 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti del codice&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/DoubleBallEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ExtraLifeEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/menu/BackgroundPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collidable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Drawable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BackgroundPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Brick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BrickMaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/BrickMaps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Collidable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DoubleBallEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ExtraLifeEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ForceField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ForceFieldEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ForceFieldEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameEffectType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GamePanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/menu/MenuManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReverseControlsEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ReverseControlsEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SpeedBoostEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/SpeedBoostEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +159,7 @@
       <workItem from="1706263909610" duration="115235000" />
       <workItem from="1707058154125" duration="3961000" />
       <workItem from="1707062671082" duration="77911000" />
-      <workItem from="1707989614334" duration="8609000" />
+      <workItem from="1707989614334" duration="13819000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -372,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707989631387</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="git commit -m &quot;miglioramenti del codice&quot;">
+      <option name="closed" value="true" />
+      <created>1708006685612</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708006685612</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,10 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.awt.*;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Ball {
+public class Ball implements Drawable {
     private float x, y; // Current position of the ball.
     private final float radius = GameConstants.BALL_RADIUS; // Radius of the ball.
     private float dx = GameConstants.INITIAL_BALL_DX; // Horizontal speed of the ball.
@@ -57,5 +59,17 @@ public class Ball {
         dx /= speedBoost;
         dy /= speedBoost;
         maxSpeedChange /= speedBoost;
+    }
+
+    @Override
+    public void draw(Graphics2D g2d) {
+        Color color = this.isAboutToExpire ?
+                ((System.currentTimeMillis() / 400) % 2 == 0 ? new Color(255,165,0,64) : new Color(255,165,0,255)) :
+                new Color(255,165,0,255);
+        g2d.setColor(color);
+        float diameter = this.radius * 2;
+        g2d.fillOval((int) (this.x - this.radius), (int) (this.y - this.radius), (int)diameter, (int)diameter);
+        g2d.setColor(Color.BLACK);
+        g2d.drawOval((int) (this.x - this.radius), (int) (this.y - this.radius), (int) diameter, (int) diameter);
     }
 }

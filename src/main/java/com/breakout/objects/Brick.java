@@ -3,12 +3,11 @@ package com.breakout.objects;
 import com.breakout.utils.Collidable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class Brick implements Collidable {
+public class Brick implements Collidable{
     private final int x, y; // Position of the brick.
     private final int width, height; // Dimensions of the brick.
     private final boolean isDestructible; // Whether the brick can be destroyed.
