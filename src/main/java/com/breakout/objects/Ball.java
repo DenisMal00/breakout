@@ -64,7 +64,7 @@ public class Ball implements Drawable {
     @Override
     public void draw(Graphics2D g2d) {
         Color color = this.isAboutToExpire ?
-                ((System.currentTimeMillis() / 400) % 2 == 0 ? new Color(255,165,0,64) : new Color(255,165,0,255)) :
+                ((System.currentTimeMillis() / 400) % 2 == 0 ? new Color(255,165,0,100) : new Color(255,165,0,255)) :
                 new Color(255,165,0,255);
         g2d.setColor(color);
         float diameter = this.radius * 2;

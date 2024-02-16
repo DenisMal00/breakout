@@ -3,7 +3,6 @@ package com.breakout.mvc;
 import com.breakout.effects.GameEffect;
 import com.breakout.effects.GameEffectManager;
 import com.breakout.objects.*;
-import com.breakout.utils.Collision;
 import com.breakout.utils.GameConstants;
 import lombok.Data;
 
@@ -23,12 +22,14 @@ public class GameModel {
     private List<GameEffect> activeEffects = new ArrayList<>(); // Effects that are currently active.
     private ForceField forceField;
     public GameEffectManager powerUpManager; // Manages the power-ups available within bricks.
+    private CollisionHandler collisionHandler;
 
     // Constructor initializes game model, setting the game area dimensions and starting level.
     public GameModel(int panelWidth, int panelHeight, int level) {
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
         initializeGame(level); // Set up game objects based on the level.
+        collisionHandler=new CollisionHandler();
     }
 
     // Sets up initial game objects and their positions.
@@ -80,14 +81,14 @@ public class GameModel {
     }
 
     // Checks status of dropping effects and applies them if they collide with the paddle.
-    public void checkEffectsStatus() {
+    private void checkEffectsStatus() {
         Iterator<GameEffect> iterator = droppingEffects.iterator();
         while (iterator.hasNext()) {
             GameEffect effect = iterator.next();
             effect.moveDown(); // Move the effect down the screen.
             if (effect.getY() > panelHeight) { // Remove effect if it moves beyond the bottom of the screen.
                 iterator.remove();
-            } else if (Collision.checkGameEffectCollisionWithPaddle(effect, paddle)) { // Check collision with the paddle.
+            } else if (collisionHandler.checkGameEffectCollisionWithPaddle(effect, paddle)) { // Check collision with the paddle.
                 addActiveEffect(effect); // Activate the effect and remove from dropping effects.
                 iterator.remove();
             }
@@ -109,9 +110,9 @@ public class GameModel {
             Ball ball = iterator.next();
             ball.move(); // Move the ball based on its current trajectory.
             // Check for collisions with paddle, bricks, and walls.
-            Collision.checkCollisionWithPaddle(ball, paddle);
-            Collision.checkCollisionWithBricks(ball, bricks, this);
-            if (Collision.checkWallCollision(ball, panelWidth, panelHeight, getForceField())) { // Check if the ball has hit a wall and should be removed.
+            collisionHandler.checkCollisionWithPaddle(ball, paddle);
+            collisionHandler.checkCollisionWithBricks(ball, bricks, this);
+            if (collisionHandler.checkWallCollision(ball, panelWidth, panelHeight, getForceField())) { // Check if the ball has hit a wall and should be removed.
                 // Remove a life if this is the only ball left.
                 if (balls.size() == 1) {
                     lives--;
@@ -132,6 +133,9 @@ public class GameModel {
         droppingEffects.clear(); // Clear the list of dropping effects.
     }
 
+    public ArrayList<Brick> getArrayBricks(){
+        return bricks.getBricks();
+    }
     // Utility methods for game state management.
     public void incrementLives() { lives++; }
     public void setPaddlePosition(int newX) { paddle.setX(newX); }

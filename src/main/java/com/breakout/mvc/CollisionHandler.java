@@ -1,14 +1,13 @@
-package com.breakout.utils;
+package com.breakout.mvc;
 
 import com.breakout.effects.GameEffect;
-import com.breakout.mvc.GameModel;
 import com.breakout.objects.*;
 
 import java.awt.*;
 
-public class Collision {
+public class CollisionHandler {
     // Checks if the ball has collided with the paddle and adjusts its direction and speed accordingly.
-    public static void checkCollisionWithPaddle(Ball ball, Paddle paddle) {
+    public void checkCollisionWithPaddle(Ball ball, Paddle paddle) {
         Rectangle collisionArea = getCollisionArea(ball, paddle);
         // If collision detected, calculate the impact point and reverse ball's direction.
         if (!collisionArea.isEmpty()) {
@@ -24,7 +23,7 @@ public class Collision {
     }
 
     // Checks if the ball has collided with any brick and updates game state accordingly.
-    public static void checkCollisionWithBricks(Ball ball, BrickMaps bricks, GameModel gameModel) {
+    public void checkCollisionWithBricks(Ball ball, BrickMaps bricks, GameModel gameModel) {
         Brick collidedBrick = null;
         double largestOverlap = 0;
         Rectangle largestOverlapRect = new Rectangle();
@@ -45,7 +44,7 @@ public class Collision {
     }
 
     // Adjusts ball's direction after collision with a brick and applies any resulting effects.
-    private static void changeBallDirection(Ball ball, GameModel gameModel, Brick collidedBrick, Rectangle largestOverlapRect) {
+    private void changeBallDirection(Ball ball, GameModel gameModel, Brick collidedBrick, Rectangle largestOverlapRect) {
         if (collidedBrick != null) {
             // Reverse ball direction based on the collision area.
             if (largestOverlapRect.getWidth() > largestOverlapRect.getHeight()) {
@@ -65,7 +64,7 @@ public class Collision {
     }
 
     // Checks for ball collision with the walls and force field, reversing direction as necessary.
-    public static boolean checkWallCollision(Ball ball, int panelWidth, int panelHeight, ForceField forceField) {
+    public boolean checkWallCollision(Ball ball, int panelWidth, int panelHeight, ForceField forceField) {
         float x = ball.getX();
         float y = ball.getY();
         float radius = ball.getRadius();
@@ -83,7 +82,7 @@ public class Collision {
     }
 
     // Calculates the area of collision between the ball and another collidable object.
-    private static Rectangle getCollisionArea(Ball ball, Collidable object) {
+    private Rectangle getCollisionArea(Ball ball, Collidable object) {
         // Create rectangles representing the positions of the ball and the object.
         Rectangle ballRect = new Rectangle(
                 (int) (ball.getX() - ball.getRadius()),
@@ -102,7 +101,7 @@ public class Collision {
     }
 
     // Checks if a power-up has collided with the paddle.
-    public static boolean checkGameEffectCollisionWithPaddle(GameEffect effect, Paddle paddle) {
+    public boolean checkGameEffectCollisionWithPaddle(GameEffect effect, Paddle paddle) {
         // Create rectangles for the power-up and the paddle to check for intersection.
         Rectangle powerUpRect = new Rectangle(effect.getX(), effect.getY(), effect.getWidth(), effect.getHeight());
         Rectangle paddleRect = new Rectangle(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());

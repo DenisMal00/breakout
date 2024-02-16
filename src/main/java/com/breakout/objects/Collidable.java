@@ -1,4 +1,4 @@
-package com.breakout.utils;
+package com.breakout.objects;
 
 // Interface for objects that can collide with the ball.
 public interface Collidable {

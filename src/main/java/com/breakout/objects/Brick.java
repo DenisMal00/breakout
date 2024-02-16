@@ -1,6 +1,5 @@
 package com.breakout.objects;
 
-import com.breakout.utils.Collidable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.util.UUID;
@@ -22,7 +21,10 @@ public class Brick implements Collidable{
         this.width = width;
         this.height = height;
         this.isDestructible = isDestructible;
-        this.hitPoints = hitpoints;
+        if(!this.isDestructible)
+            this.hitPoints = -1;
+        else
+            this.hitPoints=hitpoints;
     }
 
     // Returns whether the brick should be visible.

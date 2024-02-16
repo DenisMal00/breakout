@@ -5,16 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti del codice&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Drawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BallTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BrickTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EffectsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/GameControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/GameModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PaddleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/GameEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/ForceField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/BrickMaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/BrickMaps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collidable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/objects/Collidable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/utils/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/CollisionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +34,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,10 +76,64 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.BallTest.executor": "Run",
+    "Gradle.BallTest.testMoveBall.executor": "Run",
+    "Gradle.BallTest.testReverseDirectionX.executor": "Run",
+    "Gradle.BallTest.testReverseDirectionY.executor": "Run",
+    "Gradle.BrickTest.executor": "Run",
+    "Gradle.BrickTest.testHitDestructibleBrickWithNegativeHitPoints.executor": "Run",
+    "Gradle.BrickTest.testHitDestructibleBrickWithRemainingHitPoints.executor": "Run",
+    "Gradle.BrickTest.testHitDestructibleBrickWithZeroHitPoints.executor": "Run",
+    "Gradle.BrickTest.testHitUndestructibleBrick.executor": "Run",
+    "Gradle.BrickTest.testVisibleForUndestructibleBrick.executor": "Run",
     "Gradle.Build breakout.executor": "Run",
+    "Gradle.EffectsActivationTest.executor": "Run",
+    "Gradle.EffectsActivationTest.testDoubleBallEffect.executor": "Run",
+    "Gradle.EffectsActivationTest.testExtraLifeActivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testForceFieldActivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testForceFieldDeactivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testReverseCommandsActivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testReverseCommandsDeactivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testSpeedBoostActivation.executor": "Run",
+    "Gradle.EffectsActivationTest.testSpeedBoostDeactivation.executor": "Run",
+    "Gradle.GameControllerTest.testGameControllerActionPerformed.executor": "Run",
+    "Gradle.GameControllerTest.testGameControllerInitialization.executor": "Run",
+    "Gradle.GameControllerTest.testGameControllerProcessKey.executor": "Run",
+    "Gradle.GameControllerTest.testGameControllerProcessLeftKey.executor": "Run",
+    "Gradle.GameModelTest.executor": "Run",
+    "Gradle.GameModelTest.testAddBall.executor": "Run",
+    "Gradle.GameModelTest.testBallBounceOffTopWall.executor": "Run",
+    "Gradle.GameModelTest.testBallBrickCollision.executor": "Run",
+    "Gradle.GameModelTest.testBallBrickCollisionFromBelow.executor": "Run",
+    "Gradle.GameModelTest.testBallBrickCollisionFromSide.executor": "Run",
+    "Gradle.GameModelTest.testBallCollisionWithBrick.executor": "Run",
+    "Gradle.GameModelTest.testBallCollisionWithBrickFromBelow.executor": "Debug",
+    "Gradle.GameModelTest.testBallCollisionWithBrickFromBelowwewrwer.executor": "Run",
+    "Gradle.GameModelTest.testBallCollisionWithBrickFromSide.executor": "Run",
+    "Gradle.GameModelTest.testBallCollisionWithPaddle.executor": "Debug",
+    "Gradle.GameModelTest.testBallLossReducesLives.executor": "Debug",
+    "Gradle.GameModelTest.testBallPaddleCollision.executor": "Run",
+    "Gradle.GameModelTest.testBounceOffLeftWall.executor": "Run",
+    "Gradle.GameModelTest.testBounceOffRightWall.executor": "Run",
+    "Gradle.GameModelTest.testEffectPaddleCollision.executor": "Run",
+    "Gradle.GameModelTest.testEffectRemovedAfterExpiration.executor": "Run",
+    "Gradle.GameModelTest.testGameOverCondition.executor": "Run",
+    "Gradle.GameModelTest.testInitializeGame.executor": "Run",
+    "Gradle.GameModelTest.testLoseLifeWhenBallFallsOffScreen.executor": "Run",
+    "Gradle.GameModelTest.testLoseLifeWhenBallFallsOffweScreen.executor": "Run",
+    "Gradle.GameModelTest.testVictoryCondition.executor": "Run",
+    "Gradle.PaddleTest.testCheckMovement.executor": "Run",
+    "Gradle.PaddleTest.testMoveLeft.executor": "Run",
+    "Gradle.PaddleTest.testMoveRight.executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "Gradle.breakout [:Main.main()].executor": "Run",
     "Gradle.breakout.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "kotlin-language-version-configured": "true",
@@ -99,13 +171,126 @@
       <recent name="com.breakout.gamEffects" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="breakout.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.GameControllerTest.testGameControllerProcessRightKey">
+    <configuration name="GameControllerTest.testGameControllerActionPerformed" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameControllerTest.testGameControllerActionPerformed&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameControllerTest.testGameControllerInitialization" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameControllerTest.testGameControllerInitialization&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameControllerTest.testGameControllerProcessKey" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameControllerTest.testGameControllerProcessKey&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameControllerTest.testGameControllerProcessLeftKey" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameControllerTest.testGameControllerProcessLeftKey&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameControllerTest.testGameControllerProcessRightKey" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameControllerTest.testGameControllerProcessRightKey&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="breakout" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
@@ -128,12 +313,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.breakout" />
+      <item itemvalue="Gradle.GameControllerTest.testGameControllerActionPerformed" />
+      <item itemvalue="Gradle.GameControllerTest.testGameControllerInitialization" />
+      <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessKey" />
+      <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessLeftKey" />
+      <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessRightKey" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessRightKey" />
+        <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessLeftKey" />
+        <item itemvalue="Gradle.GameControllerTest.testGameControllerProcessKey" />
+        <item itemvalue="Gradle.GameControllerTest.testGameControllerActionPerformed" />
+        <item itemvalue="Gradle.GameControllerTest.testGameControllerInitialization" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +352,8 @@
       <workItem from="1706263909610" duration="115235000" />
       <workItem from="1707058154125" duration="3961000" />
       <workItem from="1707062671082" duration="77911000" />
-      <workItem from="1707989614334" duration="13819000" />
+      <workItem from="1707989614334" duration="32116000" />
+      <workItem from="1708092364283" duration="14891000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -356,7 +550,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708006685612</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="git commit -m &quot;miglioramenti del codice&quot;">
+      <option name="closed" value="true" />
+      <created>1708013045569</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708013045569</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,5 +600,12 @@
     <MESSAGE value="git commit -m &quot;miglioramenti GUI: sfondi e menu&quot;" />
     <MESSAGE value="git commit -m &quot;miglioramenti del codice&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;miglioramenti del codice&quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.breakout.mvc.GameModel" memberName="paddle" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
