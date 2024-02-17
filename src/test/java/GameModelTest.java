@@ -65,8 +65,6 @@ public class GameModelTest {
         assertTrue(gameModel.getFirstBall().getDy() < 0, "The ball's vertical velocity should be upward after the collision");
     }
 
-
-
     @Test
     public void testBallBrickCollisionFromBelow() {
 
