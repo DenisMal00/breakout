@@ -15,7 +15,7 @@ public class GameModelTest {
     @BeforeEach
     public void setUp() {
         gameModel = new GameModel(800, 600, 1); // Assume sample panel sizes
-        gameModel.getArrayBricks().clear(); //delete the bricks created with costructor so in the test we can put the bricks needed to dothe tests
+        gameModel.getArrayBricks().clear(); // Delete the bricks created with the constructor so in the test, we can put the bricks needed to do the tests
         ball = new Ball();
         paddle = new Paddle();
         brickMap=new BrickMaps(1,800,600);
@@ -25,6 +25,8 @@ public class GameModelTest {
 
     @Test
     public void testInitializeGame() {
+        // Test the initialization of the game model and positions of game objects
+        gameModel = new GameModel(800, 600, 1); // Assume sample panel sizes
         assertNotNull(gameModel.getBricks(), "BrickMaps should be initialized");
         assertNotNull(gameModel.getPowerUpManager(), "GameEffectManager should be initialized");
         assertEquals(1, gameModel.getBalls().size(), "One ball should be added after resetting game positions");
@@ -42,25 +44,24 @@ public class GameModelTest {
 
     @Test
     public void testAddBall() {
+        // Test adding a ball to the game model
         int initialNumberOfBalls = gameModel.getBalls().size();
         gameModel.addBall(new Ball());
+        // Assert that the number of balls increases by 1
         assertEquals(initialNumberOfBalls + 1, gameModel.getBalls().size(), "Number of balls should increase by 1");
     }
 
     @Test
     public void testBallPaddleCollision() {
-        // Assume the initial vertical speed of the ball is downward
-        paddle.setY(400);// Assume paddle is at the bottom of the screen
+        paddle.setY(400);  // Assume paddle is at the bottom of the screen
         paddle.setX(550);
         ball.setX(550);
-        ball.setY(paddle.getY() - ball.getRadius());// Place the ball right above the paddle
-        ball.setDy(1);
+        ball.setY(paddle.getY() - ball.getRadius());  // Place the ball right above the paddle
+        ball.setDy(1);   // Assume the initial vertical speed of the ball is downward
         gameModel.addBall(ball);
         gameModel.setPaddle(paddle);
-        // Simulate the collision by calling the checkCollision method
         gameModel.update(); // This is the method to check for collisions
         // Verify the effects of the collision
-        // Assuming the collision with the paddle should change the vertical direction of the ball
         assertTrue(gameModel.getFirstBall().getDy() < 0, "The ball's vertical velocity should be upward after the collision");
     }
 
@@ -70,40 +71,34 @@ public class GameModelTest {
     public void testBallBrickCollisionFromBelow() {
 
         singleBrick = new Brick(200, 200, 50, 30,true,0); // Adjust position and size as needed
-        brickMap.getBricks().add(singleBrick); // Assuming a method to add a brick to the map, adjust if necessary
+        brickMap.getBricks().add(singleBrick); // add a brick to the map
         gameModel.setBricks(brickMap);
         // Position the ball to collide with the brick
         ball.setX(singleBrick.getX() + (float) singleBrick.getWidth() / 2 - (ball.getRadius()*2) / 2);
         ball.setY( singleBrick.getY() + singleBrick.getHeight());
 
-        // Assuming your game model can set ball and bricks for testing
         gameModel.addBall(ball);
-        // Call the collision detection method
-        gameModel.update(); // Adjust this method call based on your actual game logic
 
+        gameModel.update(); // This is the method to check for collisions
 
-        // After the collision, check the expected outcomes
-        // This might include verifying the ball's new position or velocity,
-        // and whether the brick has been marked as hit or removed from the brick map.
-        assertTrue(gameModel.getFirstBall().getDy() > 0, "The ball's vertical velocity should be downward after the collision"); // Assuming the ball bounces back
+        assertTrue(gameModel.getFirstBall().getDy() > 0, "The ball's vertical velocity should be downward after the collision");
     }
 
     @Test
     public void testBallBrickCollisionFromSide() {
         // Create a brick and clear existing bricks for a clean test environment
-        singleBrick = new Brick(200, 200, 50, 30, true, 0); // Assume these are the dimensions and position of the brick
+        singleBrick = new Brick(200, 200, 50, 30, true, 0);
         brickMap.getBricks().add(singleBrick);
         gameModel.setBricks(brickMap);
         // Position the ball so that it will collide with the right side of the brick
         // The ball's left edge should be just to the right of the brick's right edge
         ball.setX(singleBrick.getX() + singleBrick.getWidth() + 1); // Positioning ball just right of the brick
-        ball.setY(singleBrick.getY() + (float) singleBrick.getHeight() / 2 - ball.getRadius()); // Aligning ball vertically with the brick's center
+        ball.setY(singleBrick.getY() + (float) singleBrick.getHeight() / 2 - ball.getRadius());
         ball.setDx(-1.5F); // Assuming negative dx means the ball is moving left
 
         // Set up the game model for the test
         gameModel.addBall(ball);
 
-        // Initial conditions before the update (collision detection)
         // Update the game model, which should process the collision
         gameModel.update();
         // Check the expected outcomes after the collision
@@ -128,7 +123,7 @@ public class GameModelTest {
         ball.setX(400); // Center horizontally
         ball.setY(1); // Set to top edge
         gameModel.addBall(ball);
-        gameModel.update(); // Your game model should detect collision and update ball's direction
+        gameModel.update(); // detect collision and update ball's direction
         assertTrue(gameModel.getFirstBall().getDy() > 0, "The ball should be moving downwards after bouncing off the top wall");
     }
 
@@ -173,14 +168,12 @@ public class GameModelTest {
         gameModel.update();
         assertFalse(gameModel.getDroppingEffects().contains(droppingEffect), "Effect should be removed from dropping effects activation");
         assertTrue(gameModel.getActiveEffects().contains(droppingEffect), "Effect should be added to active effects");
-        // After the update, check if the effect has been activated by the collision with the paddle
     }
 
     @Test
     public void testEffectRemovedAfterExpiration() {
         GameEffect activeEffect;
-        // Assume the effect expires after a certain number of updates
-        activeEffect = new ForceFieldEffect(GameEffectType.FORCE_FIELD,375, 540); // Position the effect directly above the paddle
+        activeEffect = new ForceFieldEffect(GameEffectType.FORCE_FIELD,50, 50);
         activeEffect.setDuration(5);
 
         gameModel.getActiveEffects().add(activeEffect);
@@ -198,16 +191,16 @@ public class GameModelTest {
 
     @Test
     public void testGameOverCondition() {
-        // Imposta il numero di vite a 0 per simulare la condizione di game over
+        // Set the number of lives to check the game over
         gameModel.setLives(0);
 
-        // Verifica che il metodo isGameOver ritorni true
         assertTrue(gameModel.isGameOver(), "The game should be over when lives are 0");
     }
 
     @Test
     public void testVictoryCondition() {
         gameModel=new GameModel(800,600,1);
+        // set the hitpoints of the bricks to -1 so they are all invisibile, it means the all got hit by the ball
         for (Brick brick : gameModel.getArrayBricks()) {
             brick.setHitPoints(-1);
         }

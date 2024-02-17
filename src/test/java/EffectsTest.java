@@ -10,28 +10,27 @@ public class EffectsTest {
     @BeforeEach
     public void setUp() {
         // Setup game model
-        gameModel = new GameModel(800, 600, 1); // Assumi le dimensioni dello schermo e il livello iniziale
+        gameModel = new GameModel(800, 600, 1);
     }
     @Test
     public void testDoubleBallEffect() {
         DoubleBallEffect doubleBallEffect=new DoubleBallEffect(GameEffectType.DOUBLE_BALL,50,50);
-        // Controlla il numero iniziale di palline
+        //Check the number of initial balls
         int initialNumberOfBalls = 1;
 
-        // Attiva l'effetto Double Ball
-        doubleBallEffect.activate(gameModel); // Assumi che questo metodo esista e raddoppi il numero di palline
+        // Activate the DoubleBallEffec
+        doubleBallEffect.activate(gameModel);
 
-        // Verifica che il numero di palline sia raddoppiato
+        // Check if a new ball is added
         assertEquals(initialNumberOfBalls+1, gameModel.getBalls().size(), "The number of balls should be doubled after activating the Double Ball effect");
     }
 
     @Test
     public void testForceFieldActivation() {
-        // Initially, the ForceField should not be active
         ForceFieldEffect forceFieldEffect=new ForceFieldEffect(GameEffectType.FORCE_FIELD,50,50);
 
         // Activate the ForceFieldEffect
-        forceFieldEffect.activate(gameModel); // Assuming this method sets the ForceField to active
+        forceFieldEffect.activate(gameModel);
 
         // Check if the ForceField is now active
         assertTrue(gameModel.getForceField().isActive(), "The ForceField should be active after activating the ForceFieldEffect");
@@ -45,7 +44,7 @@ public class EffectsTest {
         double initialSpeedDx = gameModel.getFirstBall().getDx();
         double initialSpeedDy = gameModel.getFirstBall().getDy();
         // Activate the SpeedBoostEffect
-        speedBoostEffect.activate(gameModel); // Assuming this method modifies the speed of the ball
+        speedBoostEffect.activate(gameModel);
         // Check if the speed is boosted
         assertTrue((gameModel.getFirstBall().getDx() == initialSpeedDx* GameConstants.BALL_SPEEDBOOST) &&(gameModel.getFirstBall().getDy() == initialSpeedDy* GameConstants.BALL_SPEEDBOOST), "The ball's speed should be boosted after activating the SpeedBoostEffect");
     }
@@ -56,7 +55,7 @@ public class EffectsTest {
         // Initially, the number of lives should be at the starting value
         int initialLives = gameModel.getLives();
         // Activate the ExtraLifeEffect
-        extraLifeEffect.activate(gameModel); // Assuming this method increments the number of lives
+        extraLifeEffect.activate(gameModel);
 
         // Check if the number of lives has increased
         assertEquals(initialLives + 1, gameModel.getLives(), "The number of lives should increase after activating the ExtraLifeEffect");
@@ -69,7 +68,7 @@ public class EffectsTest {
         boolean initialControlState = gameModel.isControlInverted();
 
         // Activate the ReverseCommandsEffect
-        reverseControlsEffect.activate(gameModel); // Assuming this method inverts the controls
+        reverseControlsEffect.activate(gameModel);
 
         // Check if the controls have been reversed
         assertNotEquals(initialControlState, gameModel.isControlInverted(), "The controls should be reversed after activating the ReverseCommandsEffect");
@@ -79,10 +78,10 @@ public class EffectsTest {
     public void testForceFieldDeactivation() {
         ForceFieldEffect forceFieldEffect=new ForceFieldEffect(GameEffectType.FORCE_FIELD,50,50);
         // Activate the ForceFieldEffect
-        forceFieldEffect.activate(gameModel); // Assuming this method activates the ForceField
+        forceFieldEffect.activate(gameModel);
 
         // Deactivate the ForceFieldEffect
-        forceFieldEffect.deactivate(gameModel); // Assuming this method deactivates the ForceField
+        forceFieldEffect.deactivate(gameModel);
 
         // Check if the ForceField is now inactive
         assertFalse(gameModel.getForceField().isActive(), "The ForceField should be inactive after deactivating the ForceFieldEffect");
@@ -92,10 +91,10 @@ public class EffectsTest {
     public void testSpeedBoostDeactivation() {
         SpeedBoostEffect speedBoostEffect=new SpeedBoostEffect(GameEffectType.SPEED_BOOST,50,50);
         // Activate the SpeedBoostEffect
-        speedBoostEffect.activate(gameModel); // Assuming this method modifies the speed of the ball
+        speedBoostEffect.activate(gameModel);
 
         // Deactivate the SpeedBoostEffect
-        speedBoostEffect.deactivate(gameModel); // Assuming this method resets the speed of the ball
+        speedBoostEffect.deactivate(gameModel);
 
         // Check if the speed is back to the normal speed
         assertTrue((gameModel.getFirstBall().getDx() == GameConstants.INITIAL_BALL_DX) &&(gameModel.getFirstBall().getDy() == GameConstants.INITIAL_BALL_DY), "The ball's speed should be boosted after activating the SpeedBoostEffect");
@@ -106,10 +105,10 @@ public class EffectsTest {
 
         ReverseControlsEffect reverseControlsEffect=new ReverseControlsEffect(GameEffectType.REVERSE_CONTROLS,50,50);
         // Activate the ReverseCommandsEffect
-        reverseControlsEffect.activate(gameModel); // Assuming this method inverts the controls
+        reverseControlsEffect.activate(gameModel);
 
         // Deactivate the ReverseCommandsEffect
-        reverseControlsEffect.deactivate(gameModel); // Assuming this method resets the controls
+        reverseControlsEffect.deactivate(gameModel);
 
         // Check if the controls are back to the normal state
         assertFalse(gameModel.isControlInverted(), "The controls should be normal after deactivating the ReverseCommandsEffect");

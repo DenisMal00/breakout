@@ -7,12 +7,17 @@ public class BrickTest {
     @Test
     public void testVisibleForDestructibleBrickWithPositiveHitPoints() {
         Brick brick = new Brick(0, 0, 50, 30, true, 2);
-
         assertTrue(brick.isVisible(), "Destructible brick with positive hit points should be visible");
     }
 
     @Test
     public void testVisibleForDestructibleBrickWithZeroHitPoints() {
+        Brick brick = new Brick(0, 0, 50, 30, true, 0);
+        assertTrue(brick.isVisible(), "Destructible brick with positive hit points should be visible");
+    }
+
+    @Test
+    public void testVisibleForDestructibleBrickWithNegativeHitPoints() {
         Brick brick = new Brick(0, 0, 50, 30, true, -1);
 
         assertFalse(brick.isVisible(), "Destructible brick with -1 hit points should not be visible");

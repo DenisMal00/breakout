@@ -13,7 +13,6 @@ class GameControllerTest {
     public void setUp() {
         GameModel gameModel = new GameModel(800, 600, 1);
 
-        // Mock the onGameEnd consumer for testing
         Consumer<String> onGameEndMock = message -> assertTrue(message.equals("You win!") || message.equals("You lose!"), "Invalid game end message");
 
 
@@ -45,7 +44,7 @@ class GameControllerTest {
 
     @Test
     public void testGameControllerProcessRightKey() {
-        // Simulate key press event for left arrow while not in mouse control
+        // Simulate key press event for right arrow while not in mouse control
         int initialX = gameController.getPaddle().getX();
         gameController.processKey(KeyEvent.VK_RIGHT);
         int newX = gameController.getPaddle().getX();

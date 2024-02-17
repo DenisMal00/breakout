@@ -1,7 +1,6 @@
 package com.breakout.mvc;
 
-import com.breakout.effects.GameEffect;
-import com.breakout.effects.GameEffectManager;
+import com.breakout.effects.*;
 import com.breakout.objects.*;
 import com.breakout.utils.GameConstants;
 import lombok.Data;
@@ -39,6 +38,11 @@ public class GameModel {
         bricks = new BrickMaps(level, panelWidth, panelHeight);
         powerUpManager = new GameEffectManager(bricks);
         resetGamePositions(); // Position the game objects for the start of the game.
+        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,100,50));
+        droppingEffects.get(0).setVisible(true);
+        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,100,100));
+        droppingEffects.get(1).setVisible(true);
+
     }
 
     // Resets the position of game objects to their starting positions.
@@ -98,8 +102,13 @@ public class GameModel {
     // Adds a new effect, replacing any existing effect of the same type.
     private void addActiveEffect(GameEffect newEffect) {
         // Remove any active effect of the same type.
-        activeEffects.removeIf(effect -> effect.getEffectType() == newEffect.getEffectType());
-        activeEffects.add(newEffect); // Add the new effect to active list.
+        activeEffects.removeIf(effect -> {
+            if (effect.getEffectType() == newEffect.getEffectType()) {
+                effect.deactivate(this); // Deactivate the existing effect.
+                return true; // Remove the existing effect.
+            }
+            return false;
+        });        activeEffects.add(newEffect); // Add the new effect to active list.
         newEffect.activate(this); // Activate the new effect.
     }
 

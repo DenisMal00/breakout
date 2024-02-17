@@ -76,12 +76,19 @@ public class GameController implements ActionListener {
 
     // Updates paddle position based on mouse movements
     public void movePaddleTo(int mouseX) {
+        // Update the last mouse activity time to track control mode
         lastMouseActivityTime = System.currentTimeMillis();
         isMouseControlActive = true;
 
+        // Retrieve the current paddle from the game model
         Paddle paddle = model.getPaddle();
-        int targetX = model.isControlInverted() ? view.getWidth() - mouseX - paddle.getWidth() / 2 : mouseX - paddle.getWidth() / 2;
 
+        // Calculate the target x-coordinate based on mouse position and paddle width
+        int targetX = model.isControlInverted() ?
+                view.getWidth() - mouseX - paddle.getWidth() / 2 :
+                mouseX - paddle.getWidth() / 2;
+
+        // Calculate the change in x-coordinate to limit paddle speed
         int deltaX = targetX - paddle.getX();
         if (deltaX > MAX_PADDLE_SPEED) {
             deltaX = MAX_PADDLE_SPEED;
@@ -89,7 +96,10 @@ public class GameController implements ActionListener {
             deltaX = -MAX_PADDLE_SPEED;
         }
 
+        // Calculate the new x-coordinate for the paddle within panel bounds
         int newX = Math.max(0, Math.min(paddle.getX() + deltaX, view.getWidth() - paddle.getWidth()));
+
+        // Set the updated paddle position in the game model
         model.setPaddlePosition(newX);
     }
 
