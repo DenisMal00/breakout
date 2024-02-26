@@ -17,12 +17,12 @@ import java.util.function.Consumer;
 @Data
 public class GameController implements ActionListener {
     /*
-     * Indicates whether the paddle is currently being controlled by mouse movements.
-     * This is used to prevent concurrent control conflicts between mouse and keyboard inputs.
-     * If the mouse is active, it takes precedence for controlling the paddle movement.
-     * The keyboard controls will only take effect if there has been a period of mouse inactivity,
-     * allowing the user to switch between control modes seamlessly.
-     */
+     Indicates whether the paddle is currently being controlled by mouse movements.
+     This is used to prevent concurrent control conflicts between mouse and keyboard inputs.
+     If the mouse is active, it takes precedence for controlling the paddle movement.
+     The keyboard controls will only take effect if there has been a period of mouse inactivity,
+     allowing the user to switch between control modes seamlessly.
+    */
     private long lastMouseActivityTime;
     private boolean isMouseControlActive;
     private final GameModel model; //Main game logic and state holder

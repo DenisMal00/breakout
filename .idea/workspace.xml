@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a5d751d2-ac54-43f6-8bf7-2105543f955d" name="Changes" comment="git commit -m &quot;miglioramenti del codice&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/effects/DoubleBallEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/DoubleBallEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ExtraLifeEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/effects/ExtraLifeEffect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/mvc/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BallTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BallTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BrickTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrickTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EffectsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EffectsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/breakout/utils/GameConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,30 +170,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BallTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;BallTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="BrickTest.testVisibleForDestructibleBrickWithZeroHitPoints" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -210,6 +184,30 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;BrickTest.testVisibleForDestructibleBrickWithZeroHitPoints&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GameModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GameModelTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -289,18 +287,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.breakout" />
-      <item itemvalue="Gradle.BallTest" />
       <item itemvalue="Gradle.BrickTest.testVisibleForDestructibleBrickWithZeroHitPoints" />
       <item itemvalue="Gradle.GameModelTest.testInitializeGame" />
       <item itemvalue="Gradle.Tests in 'breakout.test'" />
+      <item itemvalue="Gradle.GameModelTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.GameModelTest.testInitializeGame" />
+        <item itemvalue="Gradle.GameModelTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'breakout.test'" />
         <item itemvalue="Gradle.BrickTest.testVisibleForDestructibleBrickWithZeroHitPoints" />
-        <item itemvalue="Gradle.BallTest" />
       </list>
     </recent_temporary>
   </component>
@@ -327,7 +325,7 @@
       <workItem from="1707058154125" duration="3961000" />
       <workItem from="1707062671082" duration="77911000" />
       <workItem from="1707989614334" duration="32116000" />
-      <workItem from="1708092364283" duration="18805000" />
+      <workItem from="1708092364283" duration="21664000" />
     </task>
     <task id="LOCAL-00001" summary="git pull">
       <created>1705393524126</created>
@@ -540,7 +538,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708123159416</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="git commit -m &quot;miglioramenti del codice&quot;">
+      <option name="closed" value="true" />
+      <created>1708181722400</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708181722400</updated>
+    </task>
+    <task id="LOCAL-00030" summary="git commit -m &quot;miglioramenti del codice&quot;">
+      <option name="closed" value="true" />
+      <created>1708181737095</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708181737095</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -6,7 +6,7 @@ import com.breakout.objects.Ball;
 public class DoubleBallEffect extends GameEffect {
     // Constructor for com.breakout.gamEffects.DoubleBallEffect.
     public DoubleBallEffect(GameEffectType effectType, float x, float y) {
-        super(effectType, x, y, 1); // Duration is set to 1, but typically not used for instant effects.
+        super(effectType, x, y, 1); // Duration is set to 1 because is an instant effect.
     }
 
     // Creates a new ball opposite to the existing one when activated.

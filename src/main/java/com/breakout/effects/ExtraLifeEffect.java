@@ -5,7 +5,7 @@ import com.breakout.mvc.GameModel;
 public class ExtraLifeEffect extends GameEffect {
     // Constructor for com.breakout.gamEffects.ExtraLifeEffect.
     public ExtraLifeEffect(GameEffectType type, int x, int y) {
-        super(type, x, y, 1); // Again, duration is 1, but not typically used for this instant effect.
+        super(type, x, y, 1); // Duration is set to 1 because is an instant effect.
     }
 
     // Increases the player's lives by one when activated.

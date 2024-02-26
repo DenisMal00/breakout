@@ -38,11 +38,6 @@ public class GameModel {
         bricks = new BrickMaps(level, panelWidth, panelHeight);
         powerUpManager = new GameEffectManager(bricks);
         resetGamePositions(); // Position the game objects for the start of the game.
-        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,100,50));
-        droppingEffects.get(0).setVisible(true);
-        droppingEffects.add(new ForceFieldEffect(GameEffectType.FORCE_FIELD,100,100));
-        droppingEffects.get(1).setVisible(true);
-
     }
 
     // Resets the position of game objects to their starting positions.

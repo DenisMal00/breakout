@@ -5,7 +5,7 @@ public class GameConstants {
     public static final int TIMER_INTERVAL = 5;
     public static final int UPDATES_PER_SECOND = 1000 / TIMER_INTERVAL;
     public static final float BALL_SPEEDBOOST =2;
-    public static final int EFFECT_DURATION=1000; //5 seconds
+    public static final int EFFECT_DURATION=1000; //5 seconds based on time interval of the timer = 5
     public static final float BALL_RADIUS = 10;
     public static final float INITIAL_BALL_DX = 1.5f;
     public static final float INITIAL_BALL_DY = -1.5f;
