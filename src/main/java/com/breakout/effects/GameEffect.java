@@ -1,7 +1,7 @@
 package com.breakout.effects;
 
 import com.breakout.mvc.GameModel;
-import com.breakout.objects.Collidable;
+import com.breakout.utils.Collidable;
 import com.breakout.utils.GameConstants;
 import lombok.Data;
 
@@ -61,7 +61,7 @@ public abstract class GameEffect implements Collidable {
     protected abstract void doActivate(GameModel model);
     protected abstract void doDeactivate(GameModel model);
 
-    // Implementation of com.breakout.objects.Collidable interface methods for position and size.
+    // Implementation of com.breakout.utils.Collidable interface methods for position and size.
     @Override
     public int getX() {
         return (int) x;

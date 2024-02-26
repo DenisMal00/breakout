@@ -6,7 +6,7 @@
 
 *   **Pause and Resume:** Pause the game (P) at any time and resume when ready.
 
-*   **Power-ups:** Various power-ups can be obtained during gameplay, enhancing the gaming experience. Look out for power-ups such as:
+*   **Power-ups:** Various power-ups can be obtained during gameplay, enhancing the gaming experience. They are not cumulative. Look out for power-ups such as:
 
     *   **ForceField:** Provides a protective force field for a limited time.
     *   **SpeedBall:** Increases the speed of the ball temporarily.

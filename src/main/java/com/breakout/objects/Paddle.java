@@ -1,5 +1,6 @@
 package com.breakout.objects;
 
+import com.breakout.utils.Collidable;
 import com.breakout.utils.GameConstants;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -9,7 +9,7 @@ public class GameConstants {
     public static final float BALL_RADIUS = 10;
     public static final float INITIAL_BALL_DX = 1.5f;
     public static final float INITIAL_BALL_DY = -1.5f;
-    public static final float INITIAL_BALL_MAX_SPEED_CHANGE = 1f;
+    public static final float INITIAL_BALL_MAX_SPEED_CHANGE = 1.2f;
     public static final int BRICK_HEIGHT =30;
     public static final int FORCE_FIELD_HEIGHT = 40;
     public static final int MOUSE_INACTIVITY_THRESHOLD = 300; //0.3 seconds

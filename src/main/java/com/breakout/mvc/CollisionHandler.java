@@ -2,6 +2,7 @@ package com.breakout.mvc;
 
 import com.breakout.effects.GameEffect;
 import com.breakout.objects.*;
+import com.breakout.utils.Collidable;
 
 import java.awt.*;
 
